@@ -1,0 +1,10 @@
+delete from ADMIN.APPUPDATE
+delete from ADMIN.DISTRICT
+delete from ADMIN.SEX
+delete from ADMIN.FIELD_ENUMERATION
+delete from ADMIN.PAGE_ITEM
+delete from ADMIN.RULE_DEFINITION
+delete from ADMIN.FORM_FIELD
+delete from ADMIN.FORM
+delete from ADMIN.FORM_TYPE
+delete from ADMIN.FLOW

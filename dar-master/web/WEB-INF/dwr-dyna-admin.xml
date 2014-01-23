@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN" "http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+<dwr>
+    <allow>
+         <create creator="new" javascript="Dynasite" scope="session">
+            <param name="class" value="org.rti.zcore.remote.admin.Dynasite"/>
+        </create>
+        <convert converter="bean" match="org.rti.zcore.PageItem">
+             <param name="include" value="id, form_field, formFieldId, displayOrder,
+             inputType, closeRow, columnNumber, size, maxlength, rows, cols, visible,
+             visibleEnumIdTrigger1, visibleDependencies1, visibleEnumIdTrigger2,
+             visibleDependencies2, selectedEnum, form, formId, colspan, dempMap1, dempMap2,
+             highlightCell, dropdownTable, dropdownColumn, dropdownConstraint,
+             dropdownOrderByClause, fkIdentifier"/>
+        </convert>
+
+        <convert converter="bean" match="org.rti.zcore.AuditInfo"/>
+        <convert converter="bean" match="org.rti.zcore.User"/>
+        <convert converter="bean" match="org.rti.zcore.Site"/>
+        <convert converter="bean" match="org.rti.zcore.Flow">
+            <param name="include" value="id, name, flowOrder"/>
+        </convert>
+        <convert converter="bean" match="org.rti.zcore.Form"/>
+        <convert converter="bean" match="org.rti.zcore.FormField">
+            <param name="include" value="id, label, shared, enumerations, enabled, required, starSchemaName, minValue, maxValue, type, units"/>
+        </convert>
+        <convert converter="bean" match="org.rti.zcore.RuleDefinition">
+            <param name="include" value="id, fieldId, ruleClass, outcomeClass, allPregnancies, ruleParams, message, operand, operator, formId"/>
+        </convert>
+        <convert converter="bean" match="org.rti.zcore.FieldEnumeration">
+             <param name="include" value="id, enumeration, numericValue, enabled, concatEnumNumeric, displayOrder"/>
+        </convert>
+        <convert converter="bean" match="org.rti.zcore.DropdownItem">
+              <param name="include" value="dropdownId, dropdownUuid, dropdownValue"/>
+        </convert>
+    </allow>
+    <signatures>
+      <![CDATA[
+      import java.util.HashSet;
+      import org.rti.zcore.FormField;
+      import org.rti.zcore.Flow;
+      import org.rti.zcore.FieldEnumeration;
+      FormField.setEnumerations(Set<FieldEnumeration> enumerations);
+      import org.rti.zcore.RuleDefinition;
+      ]]>
+    </signatures>
+</dwr>

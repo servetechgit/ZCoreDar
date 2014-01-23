@@ -1,0 +1,198 @@
+<project name="dar" basedir=".">
+
+	  <!-- first, see if there are local/developer (non-CVS) properties available -->
+	    <property file="local.properties"/>
+
+	    <!-- then fill in anything not already set with the project's properties. Local takes precedence -->
+	    <property file="build.properties"/>
+
+    <target name="update_1_prepare-update" depends="versionInfo">
+        <property file="version.properties"/>
+    	<mkdir dir="${updates.dir}/update_${buildDate}/webapps/${project}/"/>
+    	<mkdir dir="${updates.dir}/update_${buildDate}/webapps/${project}/WEB-INF/pages"/>
+        <copy file="${zcore.web.webinf}/pages/version.html" tofile="${updates.dir}/update_${buildDate}/webapps/${project}/WEB-INF/pages/version.html" overwrite="true"/>
+    	<mkdir dir="${updates.dir}/update_${buildDate}/webapps/${project}/WEB-INF/classes/org/rti/zcore/dar/utils"/>
+    </target>
+    <target name="update_2_make-updatedfiles-zip">
+        <property file="version.properties"/>
+    	<echo message="${buildDate}"></echo>
+    	<zip zipfile="${updates.dir}/update_${buildDate}/updatedFiles_${buildDate}.zip">
+        	<zipfileset dir="${updates.dir}/update_${buildDate}/webapps" prefix="webapps"/>
+		</zip>
+    </target>
+    <target name="update_3_make-update-zip">
+        <property file="version.properties"/>
+    	<echo message="${buildDate}"></echo>
+        <zip zipfile="${updates.dir}/update_${buildDate}/update_${buildDate}.zip">
+        	<zipfileset file="${updates.dir}/update_${buildDate}/updatedFiles_${buildDate}.zip"></zipfileset>
+		</zip>
+    </target>
+    <target name="update_3_make-update-adminSql-zip">
+        <property file="version.properties"/>
+    	<echo message="${buildDate}"></echo>
+        <zip zipfile="${updates.dir}/update_${buildDate}/update_${buildDate}.zip">
+        	<zipfileset file="${updates.dir}/update_${buildDate}/updatedFiles_${buildDate}.zip"></zipfileset>
+        	<zipfileset file="${updates.dir}/update_${buildDate}/adminSql-derby_${buildDate}.zip"></zipfileset>
+		</zip>
+    </target>
+	<target name="update_3_make-update-sql-admin-zip">
+		<property file="version.properties"/>
+		<echo message="${buildDate}">
+		</echo>
+		<zip zipfile="${updates.dir}/update_${buildDate}/update_${buildDate}.zip">
+			<zipfileset dir="${updates.dir}/update_${buildDate}/" includes="updatedFiles_*,adminSql*,additionalSql_*,manifest.txt" />
+		</zip>
+	</target>
+    <target name="update_3_make-update-add-files-zip">
+        <property file="version.properties"/>
+    	<echo message="${buildDate}"></echo>
+        <zip zipfile="${updates.dir}/update_${buildDate}/update_${buildDate}.zip">
+        	<zipfileset file="${updates.dir}/update_${buildDate}/updatedFiles_${buildDate}.zip"></zipfileset>
+        	<zipfileset file="${updates.dir}/update_${buildDate}/upgradeExternalDatabase_08162010a.txt"></zipfileset>
+		</zip>
+    </target>
+
+	    <target name="copy-src">
+	        <copy todir="${zeprs.web.dir}/WEB-INF/src/org/rti">
+	            <fileset dir="${zeprs.src.dir}/org/rti"/>
+	        </copy>
+	        <copy todir="${zeprs.web.dir}/WEB-INF/src/org/cidrz">
+	            <fileset dir="${zeprs.src.dir}/org/cidrz"/>
+	        </copy>
+	    </target>
+
+	    <target name="realm-jar">
+	        <jar file="${tomcat-realm.jar}" basedir="${tomcat-realm.classes.dir}">
+	            <include name="**/*"/>
+	        </jar>
+	        <copy file="${tomcat-realm.jar}" todir="${tomcat.lib.dir}" overwrite="true"/>
+	    </target>
+
+		<target name="dynaSiteForms-jar">
+			<tstamp>
+				<format property="TODAY_US" pattern="yyyy-MM-dd-HHmmss" locale="en_US" />
+			</tstamp>
+		        <jar destfile="${build.dir}/dynaSiteForms-${project}-${TODAY_US}.jar"
+		             includes="resources/forms/**,org/cidrz/project/zeprs/valueobject/gen/**,org/cidrz/project/zeprs/valueobject/report/gen/**"
+		             basedir="${zeprs.web.classes}"/>
+		    </target>
+
+	    <target name="javadoc">
+	        <javadoc sourcepath="${javadocSourcePath}" packagenames="org.cidrz.project.zeprs.report.valueobject" destdir="${docs.dir}" windowtitle="${project} API"/>
+	    </target>
+
+
+
+	<!--  Target to be run after an Eclipse build has happened -->
+	<target name="postBuild">
+		<echo>Copying modified jsp files...</echo>
+    	<!-- TODO: parameterise paths -->
+    	<copy todir="${deploy.dir}\" verbose="true">
+    	    <fileset dir="${source.dir}\web\zeprs">
+    	</fileset>
+    	</copy>
+	</target>
+
+	<target name="versionInfo">
+		<tstamp>
+					<format property="TIMESTAMP" pattern="MMddyyyy_HHmmss" locale="en_US" />
+				</tstamp>
+				<echo message="Timestamp: ${TIMESTAMP}"/>
+	        <copy file="version.properties" tofile="version.old.properties" overwrite="true"/>
+	        <propertyfile
+	            file="version.properties" comment="Build version info">
+	            <entry key="buildDate" type="string" value="${TIMESTAMP}"/>
+	            <entry key="buildNum" default="0" type="int" operation="+" value="1"/>
+	        </propertyfile>
+	        <copy file="${conf.template.dir}/build_elements/version.html" tofile="${zcore.web.webinf}/pages/version.html" overwrite="true"/>
+	        <replace
+	            file="${zcore.web.webinf}/pages/version.html"
+	            value="value not found in version.properties"
+	            propertyFile="version.properties">
+	            <replacefilter
+	                token="@buildDate@"
+	                property="buildDate"/>
+	            <replacefilter
+	                token="@buildNum@"
+	                property="buildNum"/>
+	        </replace>
+	    </target>
+
+	<target name="copy-compile-zcore-libs" depends="zcore-base.jar,zcore-dynasite.jar,zcore-sync.jar,zcore-update.jar,zcore-utils.jar">
+        <copy file="${zcore-libs.dir}/zcore-base.jar" todir="${zcore.web.webinf}/lib" overwrite="true"/>
+        <copy file="${zcore-libs.dir}/zcore-dynasite.jar" todir="${zcore.web.webinf}/lib" overwrite="true"/>
+        <copy file="${zcore-libs.dir}/zcore-sync.jar" todir="${zcore.web.webinf}/lib" overwrite="true"/>
+        <copy file="${zcore-libs.dir}/zcore-update.jar" todir="${zcore.web.webinf}/lib" overwrite="true"/>
+        <copy file="${zcore-libs.dir}/zcore-utils.jar" todir="${zcore.web.webinf}/lib" overwrite="true"/>
+	</target>
+	<target name="copy-zcore-libs">
+        <copy file="${zcore-libs.dir}/zcore-base.jar" todir="${zcore.web.webinf}/lib" overwrite="true"/>
+        <copy file="${zcore-libs.dir}/zcore-dynasite.jar" todir="${zcore.web.webinf}/lib" overwrite="true"/>
+        <copy file="${zcore-libs.dir}/zcore-sync.jar" todir="${zcore.web.webinf}/lib" overwrite="true"/>
+        <copy file="${zcore-libs.dir}/zcore-update.jar" todir="${zcore.web.webinf}/lib" overwrite="true"/>
+        <copy file="${zcore-libs.dir}/zcore-utils.jar" todir="${zcore.web.webinf}/lib" overwrite="true"/>
+	</target>
+
+	<target name="zcore-update.jar">
+	        <jar file="C:/Documents and Settings/ckelley/workspace/libs/zcore-update.jar" basedir="C:\zcore-base\webapps\zcore\WEB-INF\classes">
+	        	<include name="org/rti/zcore/updates/*"/>
+	        </jar>
+	    </target>
+	    <target name="zcore-dynasite.jar">
+	        <jar file="C:/Documents and Settings/ckelley/workspace/libs/zcore-dynasite.jar" basedir="C:\zcore-base\webapps\zcore\WEB-INF\classes">
+	        	<include name="org/rti/zcore/dynasite/*"/>
+	        	<include name="org/rti/zcore/dynasite/dao/*"/>
+	        	<include name="org/rti/zcore/dynasite/utils/*"/>
+	        	<include name="org/rti/zcore/dynasite/extensions/*"/>
+	        	<include name="org/rti/zcore/dynasite/struts/*"/>
+	        </jar>
+	    </target>
+	    <target name="zcore-base.jar">
+	        <jar file="C:/Documents and Settings/ckelley/workspace/libs/zcore-base.jar" basedir="C:\zcore-base\webapps\zcore\WEB-INF\classes">
+	        	<include name="org/rti/zcore/zeprs/remote/*"/>
+	        	<include name="org/rti/zcore/art/*"/>
+	        	<include name="org/rti/zcore/struts/action/persistence/*"/>
+	        	<include name="org/rti/zcore/struts/action/*"/>
+	        	<include name="org/rti/zcore/dao/*"/>
+	        	<include name="org/rti/zcore/rules/*"/>
+	        	<include name="org/rti/zcore/struts/action/records/*"/>
+	        	<include name="org/rti/zcore/*"/>
+	        	<include name="org/rti/zcore/remote/*"/>
+	        	<include name="org/rti/zcore/struts/form/*"/>
+	        	<include name="org/rti/zcore/struts/action/report/*"/>
+	        	<include name="org/rti/zcore/remote/admin/*"/>
+	        	<include name="org/rti/zcore/rules/impl/*"/>
+	        	<include name="org/rti/zcore/impl/*"/>
+	        	<include name="org/rti/zcore/servlet/*"/>
+	        	<include name="org/rti/zcore/struts/action/generic/*"/>
+	        	<include name="org/rti/zcore/exception/*"/>
+	        </jar>
+	    </target>
+	    <target name="zcore-sync.jar">
+	        <jar file="C:/Documents and Settings/ckelley/workspace/libs/zcore-sync.jar" basedir="C:\zcore-base\webapps\zcore\WEB-INF\classes">
+	        	<include name="org/rti/zcore/sync/utils/*"/>
+	        	<include name="org/rti/zcore/sync/dao/*"/>
+	        	<include name="org/rti/zcore/sync/job/*"/>
+	        	<include name="org/rti/zcore/sync/struts/*"/>
+	        	<include name="org/rti/zcore/sync/*"/>
+	        </jar>
+	    </target>
+	    <target name="zcore-utils.jar">
+	        <jar file="C:/Documents and Settings/ckelley/workspace/libs/zcore-utils.jar" basedir="C:\zcore-base\webapps\zcore\WEB-INF\classes">
+				<include name="org/rti/zcore/utils/*"/>
+				<include name="org/rti/zcore/utils/admin/*"/>
+				<include name="org/rti/zcore/utils/auth/jcifs/*"/>
+				<include name="org/rti/zcore/utils/auth/commons/*"/>
+				<include name="org/rti/zcore/utils/database/*"/>
+				<include name="org/rti/zcore/utils/database/derby/*"/>
+				<include name="org/rti/zcore/utils/database/mssql/*"/>
+				<include name="org/rti/zcore/utils/encryption/*"/>
+				<include name="org/rti/zcore/utils/network/*"/>
+				<include name="org/rti/zcore/utils/security/*"/>
+				<include name="org/rti/zcore/utils/sort/*"/>
+				<include name="org/rti/zcore/utils/struts/*"/>
+				<include name="org/rti/zcore/utils/struts/i18n/*"/>
+	        </jar>
+	    </target>
+
+</project>

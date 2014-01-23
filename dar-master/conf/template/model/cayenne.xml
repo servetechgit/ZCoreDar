@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domains project-version="1.1">
+<domain name="zeprs">
+	<map name="zeprs" location="zeprs.map.xml"/>
+
+	<node name="zeprsNode"
+		 datasource="zeprsNode.driver.xml"
+		 factory="org.objectstyle.cayenne.conf.DriverDataSourceFactory">
+	 </node>
+</domain>
+</domains>

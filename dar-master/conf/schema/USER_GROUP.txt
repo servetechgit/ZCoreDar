@@ -1,0 +1,19 @@
+1,"Superusers",,,"zepadmin","zepadmin",,1
+2,"System Administrator",,,"zepadmin","zepadmin",,
+3,"Database Administrator",,,"zepadmin","zepadmin",,
+4,"Software Developer",,,"zepadmin","zepadmin",,
+5,"Clinic Medical Staff",,,"zepadmin","zepadmin",,1
+6,"UTH Medical Staff",,,"zepadmin","zepadmin",,0
+7,"CIDRZ Medical Staff",,,"zepadmin","zepadmin",,
+8,"LUDHMT",,,"zepadmin","zepadmin",,
+9,"LUDHMB Staff ID/Login Admistrator",,,"zepadmin","zepadmin",,1
+10,"Central Board of Health (CBoH)",,,"zepadmin","zepadmin",,
+11,"CIDRZ Laboratory Staff (Kalingalinga)",,,"zepadmin","zepadmin",,
+12,"Clinic and UTH Laboratory Staff",,,"zepadmin","zepadmin",,
+13,"UAB Alabama Research Staff",,,"zepadmin","zepadmin",,
+14,"RTI NC ZEPRS Staff",,,"zepadmin","zepadmin",,
+15,"View Reports only",,,,,,1
+16,"View Patient Records only",,,,,,1
+17,"View Patient Records and Reports",,,,,,
+18,"Clerks",,,,,,1
+19,"Clinic/UTH Admins",,,,,,1

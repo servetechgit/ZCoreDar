@@ -1,0 +1,1 @@
+<%@ taglib uri="/WEB-INF/tlds/struts-html.tld" prefix="html" %><html:javascript staticJavascript="true" dynamicJavascript="false" />

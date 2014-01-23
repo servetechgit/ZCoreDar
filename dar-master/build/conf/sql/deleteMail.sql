@@ -1,0 +1,11 @@
+SET FOREIGN_KEY_CHECKS = 0;
+USE mail;
+DELETE FROM accountuser;
+INSERT INTO accountuser VALUES ('zepadmin',password('zepadmin11'),'','','2003-10-30 09:19:47','2003-10-30 09:19:47');
+INSERT INTO accountuser VALUES ('luser',password(''),'','','2003-10-30 09:19:47','2003-10-30 09:19:47');
+INSERT INTO accountuser VALUES ('reports',password('reports11'),'','','2003-10-30 09:19:47','2003-10-30 09:19:47');
+INSERT INTO accountuser VALUES ('clinic',password('clinic11'),'','','2003-10-30 09:19:47','2003-10-30 09:19:47');
+INSERT INTO accountuser VALUES ('viewall',password('viewall'),'','','2003-10-30 09:19:47','2003-10-30 09:19:47');
+INSERT INTO accountuser VALUES ('useradmin',password('useradmin01'),'','','2003-10-30 09:19:47','2003-10-30 09:19:47');
+INSERT INTO accountuser VALUES ('clerk',password('clerk01'),'','','2003-10-30 09:19:47','2003-10-30 09:19:47');
+SET FOREIGN_KEY_CHECKS = 1;

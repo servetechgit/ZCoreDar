@@ -1,0 +1,26 @@
+----------------------------------------------------------------
+2010-08-22 20:01:16.123 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.6.1.0 - (938214): instance a816c00e-012a-9b63-fe81-00000039f4c8 
+on database directory C:\zephyr\databases\zeprs   with class loader sun.misc.Launcher$AppClassLoader@17590db
+
+Database Class Loader started - derby.database.classpath=''
+
+2010-08-22 20:01:16.795 GMT:
+Shutting down instance a816c00e-012a-9b63-fe81-00000039f4c8 with class loader sun.misc.Launcher$AppClassLoader@17590db 
+----------------------------------------------------------------
+----------------------------------------------------------------
+2010-08-22 20:01:16.842 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.6.1.0 - (938214): instance 08264012-012a-9b63-fe81-00000039f4c8 
+on database directory C:\zephyr\databases\zeprs   with class loader sun.misc.Launcher$AppClassLoader@17590db
+
+Database Class Loader started - derby.database.classpath=''
+
+2010-08-22 20:01:19.436 GMT:
+Shutting down instance 08264012-012a-9b63-fe81-00000039f4c8 with class loader sun.misc.Launcher$AppClassLoader@17590db 
+----------------------------------------------------------------
+----------------------------------------------------------------
+2010-08-22 20:01:19.498 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.6.1.0 - (938214): instance 6b91c056-012a-9b63-fe81-00000039f4c8 
+on database directory C:\zephyr\databases\zeprs   with class loader sun.misc.Launcher$AppClassLoader@17590db
+
+Database Class Loader started - derby.database.classpath=''

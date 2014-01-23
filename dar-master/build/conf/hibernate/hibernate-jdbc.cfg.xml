@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration
+PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/zeprs</property>
+        <property name="connection.username">zeprs_web_user</property>
+        <property name="connection.password">0UpaxVKr</property>
+        <property name="connection.pool_size">10</property>
+        <property name="show_sql">false</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+         <property name="hibernate.cglib.use_reflection_optimizer">false</property>
+        <!-- Mapping files -->
+        <mapping resource="org/zeprs/data/Address.hbm.xml"/>
+        <mapping resource="org/zeprs/data/ClientSettings.hbm.xml"/>
+        <mapping resource="org/zeprs/data/EncounterRecord.hbm.xml"/>
+        <mapping resource="org/zeprs/data/EncounterValue.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/FieldEnumeration.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/Flow.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/Form.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/FormField.hbm.xml"/>
+        <mapping resource="org/zeprs/data/MenuItem.hbm.xml"/>
+        <mapping resource="org/zeprs/data/Patient.hbm.xml"/>
+        <mapping resource="org/zeprs/data/ReportSpec.hbm.xml"/>
+        <mapping resource="org/zeprs/data/RuleDefinition.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/Site.hbm.xml"/>
+        <mapping resource="org/zeprs/data/UserGroup.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/User.hbm.xml"/>
+        <mapping resource="org/zeprs/rules/Outcome.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/PageItem.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/TaskList.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/Task.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/Problem.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/Comment.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/report/PatientStatusReport.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/report/PatientLabReport.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/report/Appointment.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/report/ReferralReport.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/report/ChartReport.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/AppointmentType.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/LiveReport.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/LiveReportField.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/LiveReportForm.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/Pregnancy.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/FormType.hbm.xml"/>
+        <mapping resource="org/cidrz/webapp/dynasite/valueobject/District.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/EncounterData.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/Immunization.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/ImmunizationType.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/FetalHeartRate.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/Liquor.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/Moulding.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/Cervix.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/Descent.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/Contractions.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/Oxytocin.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/DrugsDispensed.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/BloodPressure.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/Pulse.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/Temperature.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/UrineAmount.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/UrinalysisProtein.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/UrinalysisAcetone.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/UrinalysisGlucose.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/partograph/VaginalExamParto.hbm.xml"/>
+        <mapping resource="org/cidrz/project/zeprs/valueobject/DistrictId.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

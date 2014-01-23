@@ -1,0 +1,21 @@
+
+service tomcat5 stop
+unzip zeprs_
+
+mysqldump -u root -p -h 192.168.20.7 zeprs>zeprs09112005
+mysql -u root -p -h 192.168.20.7 zeprs<zeprs_install.sql
+rm -rf /usr/local/tomcat55/work/Catalina/localhost/zeprs
+rm -rf /usr/local/tomcat55/webapps/zeprs
+rm -rf /usr/local/tomcat55/webapps/zeprs.war
+cp zeprs.war /usr/local/tomcat55/webapps/zeprs.war
+
+
+tail -f /usr/local/tomcat55/logs/catalina.out
+
+----------
+
+rm -rf /usr/local/tomcat/work/Catalina/localhost/zeprs
+rm -rf /usr/local/tomcat/work/Catalina/localhost/zeprs.war
+cp zeprs.war /usr/local/tomcat/webapps/zeprs.war
+mysqldump -u root -p  zeprs>zeprs08182005
+mysql -u root -p -h 192.168.20.7 zeprs<zeprs_install.sql

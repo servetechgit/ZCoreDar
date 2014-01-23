@@ -1,0 +1,43 @@
+Insatructions for Installing the ZEPRS app
+Chris Kelley
+16 Oct 2006
+
+Pre-requisites:
+JRE 1.5
+MySQL 4 (5 preferred)
+Tomcat 5
+
+Installation:
+Copy zeprs.war to tomcat's webapp dir.
+
+Run the script insall.sql to install the zeprs-related databases.
+mysql -u root -p mysql<install.sql
+
+For some of the fancier db operations, the root password needs to be 36avaU68.
+SET PASSWORD FOR root@localhost=PASSWORD('36avaU68');
+
+Certain libraries need to be added to your tomcat instance for database connectivity and authentication.
+/server/lib/tomcat-realm-zeprs.jar - used for authentication via tomcat realm. Copy to tomcat/server/lib
+/common/endorsed/mysql-connector-java-3.1.10-bin.jar - db connector. Copy to tomcat/common/endorsed/ if it's not already there.
+
+Start tomcat. Browse to http://localhost:8080/zeprs and login.
+You may login with the following users to test the different levels of permissions in zeprs:
+
++-----------+-------------+-----------------------------------+
+| id        | passwooord  | name                              |
++-----------+-------------+-----------------------------------+
+| zepadmin  | zepadmin11  | Superusers                        |
+| clinic    | clinic11    | Clinic Medical Staff              |
+| useradmin | useradmin01 | LUDHMB Staff ID/Login Admistrator |
+| reports   | reports11   | View Reports only                 |
+| clerk     | clerk01     | View Patient Records only         |
+| luser     |             | View Patient Records only         |
+| viewall   | viewall     | View Patient Records only         |
++-----------+-------------+-----------------------------------+
+
+If you login with the zepadmin user, you will have administrative privs and may create some test users.
+After logging in as zepadmin, click "Admin" from the left nav strip.
+In the "Test patient generation" section, click "Simple patient -> Problem/labour visit." to create a patient.
+If you have not already done the "Site Publisher setup," you may get an error message after creating a test patient.
+Ignore and click "Home" to view the new patient.
+

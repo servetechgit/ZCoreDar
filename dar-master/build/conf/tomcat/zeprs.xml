@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context cookies="false" crossContext="true" debug="0" docBase="zeprs" path="/zeprs" privileged="true" reloadable="false" source="org.eclipse.jst.j2ee.server:zeprs" useNaming="true">
+
+<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" logAbandoned="true" maxActive="50" maxIdle="5" maxWait="10000" minEvictableIdleTimeMillis="60000" name="jdbc/zeprsDB" password="0UpaxVKr" removeAbandoned="true" removeAbandonedTimeout="60" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="120000" type="javax.sql.DataSource" url="jdbc:mysql://192.168.20.7:3306/zeprs" username="zeprs_web_user" validationQuery="SELECT 1"/>
+
+<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" logAbandoned="true" maxActive="50" maxIdle="5" maxWait="10000" minEvictableIdleTimeMillis="60000" name="jdbc/zeprsReportDB" password="0UpaxVKr" removeAbandoned="true" removeAbandonedTimeout="60" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="120000" type="javax.sql.DataSource" url="jdbc:mysql://192.168.20.7:3306/zeprs" username="zeprs_web_user" validationQuery="SELECT 1"/>
+
+<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" logAbandoned="true" maxActive="50" maxIdle="5" maxWait="10000" minEvictableIdleTimeMillis="60000" name="jdbc/adminDB" password="36avaU68" removeAbandoned="true" removeAbandonedTimeout="60" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="120000" type="javax.sql.DataSource" url="jdbc:mysql://192.168.20.7:3306/admin" username="root" validationQuery="SELECT 1"/>
+
+<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" logAbandoned="true" maxActive="50" maxIdle="5" maxWait="10000" minEvictableIdleTimeMillis="60000" name="jdbc/demoDB" password="A99wKbzN" removeAbandoned="true" removeAbandonedTimeout="60" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="120000" type="javax.sql.DataSource" url="jdbc:mysql://192.168.20.7:3306/zeprsdemo" username="zeprs_demo_user" validationQuery="SELECT 1"/>
+
+<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" logAbandoned="true" maxActive="50" maxIdle="5" maxWait="10000" minEvictableIdleTimeMillis="60000" name="jdbc/zeprsDBadmin" password="36avaU68" removeAbandoned="true" removeAbandonedTimeout="60" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="120000" type="javax.sql.DataSource" url="jdbc:mysql://192.168.20.7:3306/zeprs" username="root" validationQuery="SELECT 1"/>
+
+<Realm className="org.apache.catalina.realm.UserGroupRoleRealm" connectionName="zeprs_web_user" connectionPassword="0UpaxVKr" connectionURL="jdbc:mysql://localhost/zeprs?autoReconnect=true" debug="99" driverName="com.mysql.jdbc.Driver" groupFK="group_id" groupPK="id" groupTable="user_group_membership" mysqlPassword="true" roleNameCol="role" userCredCol="password" userFK="id" userNameCol="username" userRoleTable="user_group_role" userTable="mail.accountuser"/>
+
+</Context>

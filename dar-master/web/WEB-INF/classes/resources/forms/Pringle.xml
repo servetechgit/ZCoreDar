@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<org.rti.zcore.Form>
+  <id>105</id>
+  <name>pringle</name>
+  <label>Pringles</label>
+  <requireReauth>true</requireReauth>
+  <requirePatient>true</requirePatient>
+  <enabled>true</enabled>
+  <ruleDefinitions/>
+  <flow>
+    <id>102</id>
+    <name>Lab</name>
+    <flowOrder>102</flowOrder>
+    <forms class="tree-set">
+      <comparator class="org.rti.zcore.utils.sort.FlowOrderComparator"/>
+    </forms>
+  </flow>
+  <flowId>102</flowId>
+  <flowOrder>9</flowOrder>
+  <formType>
+    <id>4</id>
+    <name>Mother and Infant</name>
+  </formType>
+  <formTypeId>4</formTypeId>
+  <pageItems class="tree-set">
+    <comparator class="org.rti.zcore.utils.sort.DisplayOrderComparator"/>
+    <org.rti.zcore.PageItem>
+      <id>4226</id>
+      <form__field>
+        <id>2047</id>
+        <label>rhodope</label>
+        <type>Enum</type>
+        <required>false</required>
+        <minValue>0</minValue>
+        <maxValue>0</maxValue>
+        <units></units>
+        <displayOrder>2147483647</displayOrder>
+        <patientProperty></patientProperty>
+        <isEnabled>true</isEnabled>
+        <ruleDefinitions/>
+        <enumerations class="tree-set">
+          <comparator class="org.rti.zcore.utils.sort.DisplayOrderComparator"/>
+          <org.rti.zcore.FieldEnumeration>
+            <id>3092</id>
+            <fieldId>2047</fieldId>
+            <enumeration>ping</enumeration>
+            <numericValue>0</numericValue>
+            <enabled>true</enabled>
+            <concatEnumNumeric>ping (0)</concatEnumNumeric>
+            <displayOrder>0</displayOrder>
+          </org.rti.zcore.FieldEnumeration>
+          <org.rti.zcore.FieldEnumeration>
+            <id>3093</id>
+            <fieldId>2047</fieldId>
+            <enumeration>pong</enumeration>
+            <numericValue>1</numericValue>
+            <enabled>true</enabled>
+            <concatEnumNumeric>pong (1)</concatEnumNumeric>
+            <displayOrder>1</displayOrder>
+          </org.rti.zcore.FieldEnumeration>
+        </enumerations>
+        <shared>false</shared>
+        <starSchemaName>rhodope</starSchemaName>
+        <encounterRecordproperty></encounterRecordproperty>
+        <patientStatusproperty></patientStatusproperty>
+      </form__field>
+      <formFieldId>2047</formFieldId>
+      <displayOrder>0</displayOrder>
+      <inputType>select</inputType>
+      <closeRow>false</closeRow>
+      <columnNumber>0</columnNumber>
+      <size>0</size>
+      <maxlength>0</maxlength>
+      <rows>0</rows>
+      <cols>0</cols>
+      <visible>true</visible>
+      <visibleEnumIdTrigger1></visibleEnumIdTrigger1>
+      <visibleDependencies1></visibleDependencies1>
+      <visibleEnumIdTrigger2></visibleEnumIdTrigger2>
+      <selectedEnum>0</selectedEnum>
+      <visibleDependencies2></visibleDependencies2>
+      <formId>105</formId>
+      <colspan>0</colspan>
+      <highlightCell>false</highlightCell>
+    </org.rti.zcore.PageItem>
+    <org.rti.zcore.PageItem>
+      <id>4227</id>
+      <form__field>
+        <id>964</id>
+        <label>Condition of Foetus</label>
+        <type>Enum</type>
+        <required>false</required>
+        <minValue>0</minValue>
+        <maxValue>0</maxValue>
+        <units></units>
+        <displayOrder>2147483647</displayOrder>
+        <patientProperty></patientProperty>
+        <isEnabled>true</isEnabled>
+        <ruleDefinitions/>
+        <enumerations class="tree-set">
+          <comparator class="org.rti.zcore.utils.sort.DisplayOrderComparator"/>
+          <org.rti.zcore.FieldEnumeration>
+            <id>511</id>
+            <fieldId>964</fieldId>
+            <enumeration>Alive</enumeration>
+            <enabled>true</enabled>
+            <displayOrder>0</displayOrder>
+          </org.rti.zcore.FieldEnumeration>
+          <org.rti.zcore.FieldEnumeration>
+            <id>1041</id>
+            <fieldId>964</fieldId>
+            <enumeration>Dead</enumeration>
+            <enabled>true</enabled>
+            <displayOrder>1</displayOrder>
+          </org.rti.zcore.FieldEnumeration>
+        </enumerations>
+        <shared>true</shared>
+        <starSchemaName>condition_of_foetus_964</starSchemaName>
+        <encounterRecordproperty></encounterRecordproperty>
+        <patientStatusproperty></patientStatusproperty>
+      </form__field>
+      <formFieldId>964</formFieldId>
+      <displayOrder>11</displayOrder>
+      <inputType>select</inputType>
+      <closeRow>false</closeRow>
+      <columnNumber>0</columnNumber>
+      <size>0</size>
+      <maxlength>0</maxlength>
+      <rows>0</rows>
+      <cols>0</cols>
+      <visible>true</visible>
+      <formId>105</formId>
+      <colspan>0</colspan>
+      <highlightCell>false</highlightCell>
+    </org.rti.zcore.PageItem>
+  </pageItems>
+  <formfields class="tree-set">
+    <comparator class="org.rti.zcore.utils.sort.DisplayOrderComparator"/>
+  </formfields>
+  <submissions>0</submissions>
+  <maxSubmissions>1000</maxSubmissions>
+</org.rti.zcore.Form>

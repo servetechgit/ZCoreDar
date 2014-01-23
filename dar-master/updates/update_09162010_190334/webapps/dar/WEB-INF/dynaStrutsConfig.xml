@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <form-beans>
+    <form-bean name="adminSystemState" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="state" type="java.lang.String"/>
+      <form-property name="message" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="adminForm" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="formId" type="java.lang.Long"/>
+      <form-property name="name" type="java.lang.String"/>
+      <form-property name="label" type="java.lang.String"/>
+      <form-property name="_fieldOrder" type="java.lang.String"/>
+      <form-property name="_fields" type="java.lang.String"/>
+      <form-property name="_allfields" type="java.lang.String"/>
+      <form-property name="_up" type="java.lang.String"/>
+      <form-property name="_down" type="java.lang.String"/>
+      <form-property name="requireReauth" type="java.lang.Boolean"/>
+      <form-property name="requirePatient" type="java.lang.Boolean"/>
+      <form-property name="enabled" type="java.lang.Boolean"/>
+      <form-property name="flow" type="org.rti.zcore.Flow"/>
+      <form-property name="flowId" type="java.lang.Long"/>
+      <form-property name="flowOrder" type="java.lang.Integer"/>
+      <form-property name="formType" type="org.rti.zcore.FormType"/>
+      <form-property name="formTypeId" type="java.lang.Long"/>
+      <form-property name="formDomain" type="org.rti.zcore.FormDomain"/>
+      <form-property name="formDomainId" type="java.lang.Long"/>
+      <form-property name="maxSubmissions" type="java.lang.Integer"/>
+      <form-property name="recordsPerEncounter" type="java.lang.Integer"/>
+      <form-property name="startNewEvent" type="java.lang.Integer"/>
+      <form-property name="eventType" type="java.lang.String"/>
+      <form-property name="formLocale" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="adminPageItem" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="form_field" type="org.rti.zcore.FormField"/>
+      <form-property name="inputType" type="java.lang.String"/>
+      <form-property name="form_field.label" type="java.lang.String"/>
+      <form-property name="form_field.starSchemaName" type="java.lang.String"/>
+      <form-property name="form_field.minValue" type="java.lang.Integer"/>
+      <form-property name="form_field.maxValue" type="java.lang.Integer"/>
+      <form-property name="_allfields" type="java.lang.String"/>
+      <form-property name="closeRow" type="java.lang.Boolean"/>
+      <form-property name="columnNumber" type="java.lang.Integer"/>
+      <form-property name="size" type="java.lang.Integer"/>
+      <form-property name="maxlength" type="java.lang.Integer"/>
+      <form-property name="rows" type="java.lang.Integer"/>
+      <form-property name="cols" type="java.lang.Integer"/>
+      <form-property name="visible" type="java.lang.Boolean"/>
+      <form-property name="visibleEnumIdTrigger1" type="java.lang.String"/>
+      <form-property name="visibleEnumIdTrigger2" type="java.lang.String"/>
+      <form-property name="_enumerationOrder" type="java.lang.String"/>
+      <form-property name="_enumerations" type="java.lang.String"/>
+      <form-property name="_up" type="java.lang.String"/>
+      <form-property name="_down" type="java.lang.String"/>
+      <form-property name="_dependencies1" type="java.lang.String[]"/>
+      <form-property name="_dependencies2" type="java.lang.String[]"/>
+      <form-property name="selectedEnum" type="java.lang.Integer"/>
+      <form-property name="formId" type="java.lang.Long"/>
+      <form-property name="colspan" type="java.lang.Integer"/>
+      <form-property name="highlightCell" type="java.lang.Boolean"/>
+      <form-property name="newSharedField" type="java.lang.String"/>
+      <form-property name="dropdownTable" type="java.lang.String"/>
+      <form-property name="dropdownColumn" type="java.lang.String"/>
+      <form-property name="dropdownConstraint" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="adminRule" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="providerId" type="java.lang.Long"/>
+      <form-property name="formId" type="java.lang.Long"/>
+      <form-property name="fieldId" type="java.lang.Long"/>
+      <form-property name="providerClass" type="java.lang.String"/>
+      <form-property name="ruleClass" type="java.lang.String"/>
+      <form-property name="outcomeClass" type="java.lang.String"/>
+      <form-property name="outcomeArg" type="java.lang.String"/>
+      <form-property name="enabled" type="java.lang.Boolean"/>
+      <form-property name="operand" type="java.lang.String"/>
+      <form-property name="operator" type="java.lang.String"/>
+      <form-property name="expr" type="java.lang.String"/>
+      <form-property name="allPregnancies" type="java.lang.Boolean"/>
+    </form-bean>
+    <form-bean name="adminReport" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="label" type="java.lang.String"/>
+      <form-property name="sqlQuery" type="java.lang.String"/>
+      <form-property name="colLabels" type="java.lang.String"/>
+      <form-property name="primaryCategoryColumn" type="java.lang.String"/>
+      <form-property name="secondaryCategoryColumn" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="adminEnumeration" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="fieldId" type="java.lang.Long"/>
+      <form-property name="formId" type="java.lang.Long"/>
+      <form-property name="pageItem" type="java.lang.Long"/>
+      <form-property name="enumeration" type="java.lang.String"/>
+      <form-property name="numericValue" type="java.lang.String"/>
+      <form-property name="enabled" type="java.lang.Boolean"/>
+    </form-bean>
+    <form-bean name="problem" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="patientId" type="java.lang.Long"/>
+      <form-property name="pregnancyId" type="java.lang.Long"/>
+      <form-property name="problemName" type="java.lang.String"/>
+      <form-property name="active" type="java.lang.Boolean"/>
+      <form-property name="onsetDate" type="java.lang.String"/>
+      <form-property name="commentText" type="java.lang.String"/>
+      <form-property name="actionPlan" type="java.lang.String"/>
+      <form-property name="problemType" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="comment" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="patientId" type="java.lang.Long"/>
+      <form-property name="pregnancyId" type="java.lang.Long"/>
+      <form-property name="problemId" type="java.lang.Long"/>
+      <form-property name="commentText" type="java.lang.String"/>
+      <form-property name="actionPlan" type="java.lang.String"/>
+      <form-property name="outcomeId" type="java.lang.Long"/>
+      <form-property name="encounterId" type="java.lang.Long"/>
+      <form-property name="problemType" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="outcomeform" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="patientId" type="java.lang.Long"/>
+      <form-property name="pregnancyId" type="java.lang.Long"/>
+      <form-property name="active" type="java.lang.Boolean"/>
+      <form-property name="commentText" type="java.lang.String"/>
+      <form-property name="actionPlan" type="java.lang.String"/>
+      <form-property name="problemType" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="adminReportField" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="formField" type="java.lang.Long"/>
+      <form-property name="pageItem" type="java.lang.Long"/>
+      <form-property name="form" type="java.lang.Long"/>
+      <form-property name="reportProperty" type="java.lang.String"/>
+      <form-property name="liveReport" type="java.lang.Long"/>
+      <form-property name="shared" type="java.lang.Boolean"/>
+      <form-property name="formId" type="java.lang.Long"/>
+    </form-bean>
+    <form-bean name="chooseReportForm" type="org.rti.zcore.dar.report.chooseReportForm"/>
+    <form-bean name="updatePartograph" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="field1" type="java.lang.String"/>
+      <form-property name="field1549" type="java.lang.String"/>
+      <form-property name="field1551" type="java.lang.String"/>
+      <form-property name="field1552" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="forward" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="formId" type="java.lang.Long"/>
+    </form-bean>
+    <form-bean name="userSearch" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="searchUsername" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="queryBuilder" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="fieldId" type="java.lang.Long"/>
+      <form-property name="siteId" type="java.lang.Long"/>
+      <form-property name="bdate" type="java.lang.String"/>
+      <form-property name="edate" type="java.lang.String"/>
+      <form-property name="addfield" type="java.lang.Boolean"/>
+    </form-bean>
+    <form-bean name="subscribe" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="url" type="java.lang.String"/>
+      <form-property name="datesubscribed" type="java.sql.Timestamp"/>
+      <form-property name="enabled" type="java.lang.Boolean"/>
+      <form-property name="site" type="java.lang.String"/>
+      <form-property name="username" type="java.lang.String"/>
+      <form-property name="password" type="java.lang.String"/>
+      <form-property name="serverType" type="java.lang.String"/>
+      <form-property name="authenticationType" type="java.lang.String"/>
+      <form-property name="domain" type="java.lang.String"/>
+      <form-property name="siteInstanceId" type="java.lang.Integer"/>
+    </form-bean>
+    <form-bean name="publish" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="siteId" type="java.lang.Long"/>
+      <form-property name="dateModified" type="java.sql.Timestamp"/>
+      <form-property name="url" type="java.lang.String"/>
+      <form-property name="masterServer" type="java.lang.String"/>
+      <form-property name="username" type="java.lang.String"/>
+      <form-property name="password" type="java.lang.String"/>
+      <form-property name="redirectLocal" type="java.lang.Boolean"/>
+      <form-property name="enabledDataCenter" type="java.lang.Boolean"/>
+      <form-property name="siteInstanceId" type="java.lang.Integer"/>
+      <form-property name="port" type="java.lang.Integer"/>
+    </form-bean>
+    <form-bean name="serverBean" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="siteId" type="java.lang.Long"/>
+      <form-property name="dateModified" type="java.sql.Timestamp"/>
+      <form-property name="url" type="java.lang.String"/>
+      <form-property name="location" type="java.lang.String"/>
+      <form-property name="username" type="java.lang.String"/>
+      <form-property name="password" type="java.lang.String"/>
+      <form-property name="name" type="java.lang.String"/>
+      <form-property name="redirectLocal" type="java.lang.Boolean"/>
+      <form-property name="master" type="java.lang.Boolean"/>
+      <form-property name="serverType" type="java.lang.String"/>
+      <form-property name="authenticationType" type="java.lang.String"/>
+      <form-property name="domain" type="java.lang.String"/>
+      <form-property name="enabled" type="java.lang.Boolean"/>
+      <form-property name="port" type="java.lang.Integer"/>
+    </form-bean>
+    <form-bean name="sql" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="job" type="java.lang.String"/>
+      <form-property name="type" type="java.lang.String"/>
+      <form-property name="logJob" type="java.lang.Boolean" initial="true"/>
+    </form-bean>
+    <form-bean name="PreviewBean" type="org.apache.commons.beanutils.LazyDynaBean">
+      <form-property name="formId" type="java.lang.Long"/>
+    </form-bean>
+    <form-bean name="adminSite" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="siteAlphaId" type="java.lang.String"/>
+      <form-property name="districtId" type="java.lang.String"/>
+      <form-property name="abbreviation" type="java.lang.String"/>
+      <form-property name="name" type="java.lang.String"/>
+      <form-property name="siteTypeId" type="java.lang.Integer"/>
+      <form-property name="inactive" type="java.lang.Integer"/>
+    </form-bean>
+    <form-bean name="adminFlow" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="id" type="java.lang.Long"/>
+      <form-property name="name" type="java.lang.String"/>
+      <form-property name="flowOrder" type="java.lang.Long"/>
+    </form-bean>
+    <form-bean name="RestoreBean" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="zeprsId" type="java.lang.String"/>
+      <form-property name="patientFileName" type="java.lang.String"/>
+      <form-property name="pubDate" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="lazyForm" type="org.apache.struts.validator.LazyValidatorForm"/>
+    <form-bean name="LazyBean" type="org.apache.commons.beanutils.LazyDynaBean"/>
+    <form-bean name="Appointment" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="date_visit" type="java.lang.String"/>
+      <form-property name="appointment_date" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="PatientStatus_changes" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="date_visit" type="java.lang.String"/>
+      <form-property name="type_of_change" type="java.lang.String"/>
+      <form-property name="comments" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="RegimenItem_bridge" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="regimen_id" type="java.lang.String"/>
+      <form-property name="item_id" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="PatientCondition" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="date_visit" type="java.lang.String"/>
+      <form-property name="weight" type="java.lang.String"/>
+      <form-property name="height" type="java.lang.String"/>
+      <form-property name="who_screen" type="java.lang.String"/>
+      <form-property name="cd4count" type="java.lang.String"/>
+      <form-property name="bmi_calculated" type="java.lang.String"/>
+      <form-property name="tb_status" type="java.lang.String"/>
+      <form-property name="oi_indications" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="ArtRegimen" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="date_visit" type="java.lang.String"/>
+      <form-property name="date_started" type="java.lang.String"/>
+      <form-property name="regimen_1" type="java.lang.String"/>
+      <form-property name="regimen_change_reason" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="PatientRegistration" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="date_visit" type="java.lang.String"/>
+      <form-property name="surname" type="java.lang.String"/>
+      <form-property name="forenames" type="java.lang.String"/>
+      <form-property name="sex" type="java.lang.String"/>
+      <form-property name="district_pat_13" type="java.lang.String"/>
+      <form-property name="new_patient_site_id" type="java.lang.String"/>
+      <form-property name="patient_id_number" type="java.lang.String"/>
+      <form-property name="birth_date" type="java.lang.String"/>
+      <form-property name="age_at_first_attendence" type="java.lang.String"/>
+      <form-property name="age_category" type="java.lang.String"/>
+      <form-property name="street_address_1" type="java.lang.String"/>
+      <form-property name="street_address_2" type="java.lang.String"/>
+      <form-property name="mobile_phone" type="java.lang.String"/>
+      <form-property name="entry_point" type="java.lang.String"/>
+      <form-property name="entry_point_other" type="java.lang.String"/>
+      <form-property name="notes" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="StockControl" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="date_of_record" type="java.lang.String"/>
+      <form-property name="item_id" type="java.lang.String"/>
+      <form-property name="type_of_change" type="java.lang.String"/>
+      <form-property name="change_value" type="java.lang.String"/>
+      <form-property name="expiry_date" type="java.lang.String"/>
+      <form-property name="notes" type="java.lang.String"/>
+      <form-property name="balance" type="java.lang.String"/>
+      <form-property name="last_patient_item_id" type="java.lang.String"/>
+      <form-property name="computedBalance" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="UserInfo" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="username" type="java.lang.String"/>
+      <form-property name="password" type="java.lang.String"/>
+      <form-property name="email" type="java.lang.String"/>
+      <form-property name="forenames" type="java.lang.String"/>
+      <form-property name="lastname" type="java.lang.String"/>
+      <form-property name="mobile" type="java.lang.String"/>
+      <form-property name="phone" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="RegimenGroup" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="name" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="Regimen" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="code" type="java.lang.String"/>
+      <form-property name="name" type="java.lang.String"/>
+      <form-property name="description" type="java.lang.String"/>
+      <form-property name="arv_option" type="java.lang.String"/>
+      <form-property name="regimen_group_id" type="java.lang.String"/>
+      <form-property name="disabled" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="ItemGroup" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="name" type="java.lang.String"/>
+      <form-property name="short_name" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="Item" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="code" type="java.lang.String"/>
+      <form-property name="name" type="java.lang.String"/>
+      <form-property name="item_group_id" type="java.lang.String"/>
+      <form-property name="unit" type="java.lang.String"/>
+      <form-property name="pack_size" type="java.lang.String"/>
+      <form-property name="use_in_report" type="java.lang.String"/>
+    </form-bean>
+    <form-bean name="PatientItem" type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="date_visit" type="java.lang.String"/>
+      <form-property name="item_id" type="java.lang.String"/>
+      <form-property name="PBF1_item_id" type="java.lang.String"/>
+      <form-property name="PBF2_item_id" type="java.lang.String"/>
+      <form-property name="PBF3_item_id" type="java.lang.String"/>
+      <form-property name="PBF4_item_id" type="java.lang.String"/>
+      <form-property name="PBF5_item_id" type="java.lang.String"/>
+      <form-property name="PBF6_item_id" type="java.lang.String"/>
+      <form-property name="PBF7_item_id" type="java.lang.String"/>
+      <form-property name="PBF8_item_id" type="java.lang.String"/>
+      <form-property name="PBF9_item_id" type="java.lang.String"/>
+      <form-property name="PBF10_item_id" type="java.lang.String"/>
+      <form-property name="number_of_days" type="java.lang.String"/>
+      <form-property name="PBF1_number_of_days" type="java.lang.String"/>
+      <form-property name="PBF2_number_of_days" type="java.lang.String"/>
+      <form-property name="PBF3_number_of_days" type="java.lang.String"/>
+      <form-property name="PBF4_number_of_days" type="java.lang.String"/>
+      <form-property name="PBF5_number_of_days" type="java.lang.String"/>
+      <form-property name="PBF6_number_of_days" type="java.lang.String"/>
+      <form-property name="PBF7_number_of_days" type="java.lang.String"/>
+      <form-property name="PBF8_number_of_days" type="java.lang.String"/>
+      <form-property name="PBF9_number_of_days" type="java.lang.String"/>
+      <form-property name="PBF10_number_of_days" type="java.lang.String"/>
+      <form-property name="dispensed" type="java.lang.String"/>
+      <form-property name="PBF1_dispensed" type="java.lang.String"/>
+      <form-property name="PBF2_dispensed" type="java.lang.String"/>
+      <form-property name="PBF3_dispensed" type="java.lang.String"/>
+      <form-property name="PBF4_dispensed" type="java.lang.String"/>
+      <form-property name="PBF5_dispensed" type="java.lang.String"/>
+      <form-property name="PBF6_dispensed" type="java.lang.String"/>
+      <form-property name="PBF7_dispensed" type="java.lang.String"/>
+      <form-property name="PBF8_dispensed" type="java.lang.String"/>
+      <form-property name="PBF9_dispensed" type="java.lang.String"/>
+      <form-property name="PBF10_dispensed" type="java.lang.String"/>
+      <form-property name="balance" type="java.lang.String"/>
+      <form-property name="PBF1_balance" type="java.lang.String"/>
+      <form-property name="PBF2_balance" type="java.lang.String"/>
+      <form-property name="PBF3_balance" type="java.lang.String"/>
+      <form-property name="PBF4_balance" type="java.lang.String"/>
+      <form-property name="PBF5_balance" type="java.lang.String"/>
+      <form-property name="PBF6_balance" type="java.lang.String"/>
+      <form-property name="PBF7_balance" type="java.lang.String"/>
+      <form-property name="PBF8_balance" type="java.lang.String"/>
+      <form-property name="PBF9_balance" type="java.lang.String"/>
+      <form-property name="PBF10_balance" type="java.lang.String"/>
+    </form-bean>
+  </form-beans>
+  <global-exceptions/>
+  <global-forwards>
+    <forward name="success" path="/WEB-INF/pages/success.jsp"/>
+    <forward name="patientChart" path="/patientChart.do"/>
+    <forward name="patientHome" path="/patientHome.do" redirect="true"/>
+    <forward name="error" path="/WEB-INF/pages/error.jsp"/>
+    <forward name="home" path="/home.do"/>
+    <forward name="noPermissions" path="/noPermissions.do"/>
+    <forward name="search" path="/search.do"/>
+    <forward name="setup" path="/setup.do"/>
+    <forward name="patientCare" path="/patientCare.do"/>
+    <forward name="reports" path="/reports.do" redirect="true"/>
+    <forward name="menu" path="/menuList.do"/>
+    <forward name="admin/home" path="/admin/home.do"/>
+    <forward name="admin/formList" path="/admin/formList.do"/>
+    <forward name="admin/reportList" path="/admin/reportList.do"/>
+    <forward name="admin/pool" path="/admin/pool.do"/>
+    <forward name="admin/createPatient" path="/admin/createPatient.do"/>
+    <forward name="admin/ruleList" path="/admin/ruleList.do"/>
+    <forward name="admin/reportGen" path="/admin/reportGen.do"/>
+    <forward name="locked" path="/WEB-INF/pages/locked.jsp"/>
+    <forward name="notlocked" path="/WEB-INF/pages/notlocked.jsp"/>
+    <forward name="history" path="/history.do"/>
+    <forward name="nextForm" path="/nextForm.do"/>
+    <forward name="problem" path="/problem.do" redirect="true"/>
+    <forward name="demographics" path="/demographics.do" redirect="true"/>
+    <forward name="demographicsError" path="/demographics.do"/>
+    <forward name="patientTask" path="/patientTask.do" redirect="true"/>
+    <forward name="versionInfo" path="/versionInfo.do"/>
+    <forward name="archive" path="/archive.do"/>
+    <forward name="forward" path="/forward.do"/>
+    <forward name="admin/users" path="/admin/users.do"/>
+    <forward name="help" path="/help.do"/>
+    <forward name="generatePatientReport" path="/generatePatientReport.do"/>
+    <forward name="admin/fieldList" path="admin/fieldList.do"/>
+    <forward name="reports/queryBuilder" path="reports/queryBuilder.do"/>
+    <forward name="createPatient" path="/createPatient.do"/>
+    <forward name="logout" path="/logout.do"/>
+    <forward name="export" path="/admin/export.do" redirect="true"/>
+    <forward name="import" path="/admin/import.do" redirect="true"/>
+    <forward name="admin/propogateUpdates" path="/admin/propogateUpdates.do" redirect="true"/>
+    <forward name="homelink" path="/homelink.do" redirect="true"/>
+    <forward name="admin/records/list" path="/admin/records/list.do"/>
+    <forward name="admin/sites/list" path="/admin/sites/list.do"/>
+    <forward name="admin/message" path="/admin/message.do"/>
+  </global-forwards>
+  <action-mappings>
+    <!-- user space -->
+    <action path="/home" type="org.rti.zcore.dar.struts.action.HomeAction">
+      <forward name="success" path="/WEB-INF/pages/index.jsp"/>
+    </action>
+    <action path="/message" type="org.rti.zcore.struts.action.generic.BaseAction">
+      <forward name="success" path="/WEB-INF/pages/success.jsp"/>
+    </action>
+    <action path="/homelink" type="org.rti.zcore.struts.action.SimpleAction">
+      <forward name="success" path="/pages/login/homelink.jsp"/>
+    </action>
+    <action path="/login" type="org.rti.zcore.struts.action.LoginAction">
+      <forward name="success" path="/WEB-INF/pages/login/logon.jsp"/>
+    </action>
+    <action path="/logout" type="org.rti.zcore.struts.action.LogoutAction">
+      <forward name="success" path="/home.do" redirect="true"/>
+    </action>
+    <action path="/loginerror" type="org.rti.zcore.struts.action.LoginAction">
+      <forward name="success" path="/WEB-INF/pages/login/logonError.jsp"/>
+    </action>
+    <action path="/noPermissions" type="org.rti.zcore.struts.action.generic.BaseAction">
+      <forward name="success" path="/WEB-INF/pages/noPermissions.jsp"/>
+    </action>
+    <action path="/history" type="org.rti.zcore.struts.action.generic.BaseAction">
+      <forward name="success" path="/WEB-INF/pages/history.jsp"/>
+    </action>
+    <action path="/reports" type="org.rti.zcore.struts.action.ReportListAction">
+      <forward name="success" path="/WEB-INF/pages/reports/index.jsp"/>
+    </action>
+    <action path="/patientHome" type="org.rti.zcore.dar.struts.action.PatientHomeAction">
+      <forward name="input" path="/WEB-INF/pages/search/search.jsp"/>
+      <forward name="patientChart" path="/patientChart.do"/>
+      <forward name="patientHistory" path="/patientHistory.do"/>
+    </action>
+    <action path="/viewEncounter" type="org.rti.zcore.struts.action.PatientEncounterAction"/>
+    <action path="/inactivateOutcome" type="org.rti.zcore.struts.action.InactivateOutcomeAction"/>
+    <action path="/search" type="org.rti.zcore.dar.struts.action.HomeAction">
+      <forward name="input" path="/WEB-INF/pages/search/search.jsp"/>
+      <forward name="success" path="/WEB-INF/pages/index.jsp"/>
+    </action>
+    <action path="/setup" type="org.rti.zcore.struts.action.SetupFormAction" name="lazyForm" validate="false">
+      <forward name="input" path="/WEB-INF/pages/setup/site.jsp"/>
+    </action>
+    <action path="/patientCare" type="org.rti.zcore.struts.action.generic.BaseAction">
+      <forward name="success" path="/WEB-INF/pages/encounters/problem_page.jsp"/>
+    </action>
+    <action path="/nextForm" type="org.rti.zcore.struts.action.FormDisplayAction">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/problem" type="org.rti.zcore.struts.action.ProblemAction">
+      <forward name="success" path="/WEB-INF/pages/problems/problems.jsp"/>
+    </action>
+    <action path="/demographics" type="org.rti.zcore.struts.action.DemoAction" name="PatientRegistration" validate="false" parameter="PatientRegistration" scope="request"/>
+    <action path="/patientTask" type="org.rti.zcore.struts.action.PatientTaskAction">
+      <forward name="success" path="/WEB-INF/pages/patient_records/patient_tasks.jsp"/>
+    </action>
+    <action path="/versionInfo" type="org.rti.zcore.struts.action.generic.BaseAction">
+      <forward name="success" path="/WEB-INF/pages/version.html"/>
+    </action>
+    <action path="/archive" type="org.rti.zcore.struts.action.EncounterArchiveListAction" name="lazyForm">
+      <forward name="success" path="/WEB-INF/pages/reports/archive.jsp"/>
+    </action>
+    <action path="/forward" type="org.rti.zcore.struts.action.ForwardAction" name="forward" scope="request" validate="false">
+      <forward name="success" path="/home.do"/>
+    </action>
+    <action path="/help" type="org.rti.zcore.struts.action.HelpAction">
+      <forward name="success" path="/WEB-INF/pages/help/index.jsp"/>
+    </action>
+    <action path="/generatePatientReport" type="org.rti.zcore.struts.action.report.GeneratePatientReportAction"/>
+    <action path="/admin/fieldList" type="org.rti.zcore.dynasite.struts.FieldListAction">
+      <forward name="success" path="/WEB-INF/pages/admin/fieldList.jsp"/>
+    </action>
+    <action path="/reports/queryBuilder" type="org.rti.zcore.dynasite.struts.QueryBuilderAction" name="queryBuilder" scope="request" validate="false" input="/WEB-INF/pages/reports/queryBuilder.jsp">
+      <forward name="success" path="/WEB-INF/pages/reports/queryBuilder.jsp"/>
+    </action>
+    <action path="/admin/createDirectories" type="org.rti.zcore.dynasite.struts.CreateDirectoriesAction"/>
+    <action path="/admin/cleanDirectories" type="org.rti.zcore.dynasite.struts.CleanDirectoriesAction"/>
+    <!-- Configuration -->
+    <action path="/config/home" type="org.rti.zcore.dynasite.struts.ConfigListingAction">
+      <forward name="success" path="/WEB-INF/pages/config/index.jsp"/>
+    </action>
+    <!-- admin system state -->
+    <action path="/admin/systemState" type="org.rti.zcore.dynasite.struts.SystemStateAction" name="adminSystemState" scope="request" validate="false">
+      <forward name="success" path="/WEB-INF/pages/admin/change.jsp"/>
+      <forward name="formAdmin" path="/admin/formList.do"/>
+    </action>
+    <action path="/admin/home" type="org.rti.zcore.dynasite.struts.AdminAction">
+      <forward name="success" path="/WEB-INF/pages/admin/index.jsp"/>
+    </action>
+    <!-- admin forms -->
+    <action path="/admin/formList" type="org.rti.zcore.dynasite.struts.FormListAction">
+      <forward name="success" path="/WEB-INF/pages/admin/form_list.jsp"/>
+    </action>
+    <action path="/admin/form/save" type="org.rti.zcore.dynasite.struts.SaveFormAction" name="adminForm" scope="request" validate="false" input="/admin/form/new.do" parameter="org.rti.zcore.Form">
+      <forward name="success" path="/admin/formList.do"/>
+      <forward name="preview" path="/WEB-INF/pages/admin/preview_form.jsp"/>
+    </action>
+    <action path="/admin/form/preview" type="org.rti.zcore.dynasite.struts.PreviewFormAction" name="PreviewBean" scope="request" validate="false">
+      <forward name="preview" path="/WEB-INF/pages/admin/preview_form.jsp"/>
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/admin/form/edit" type="org.rti.zcore.dynasite.struts.EditFormAction" name="adminForm" scope="request" parameter="org.rti.zcore.Form" validate="false">
+      <forward name="success" path="/WEB-INF/pages/admin/fields.jsp"/>
+    </action>
+    <action path="/admin/form/new" type="org.rti.zcore.dynasite.struts.CreateNewFormAction" name="adminForm" scope="request" parameter="org.rti.zcore.Form" validate="false">
+      <forward name="success" path="/WEB-INF/pages/admin/form.jsp"/>
+    </action>
+    <action path="/admin/pool" type="org.rti.zcore.dynasite.struts.PoolAction">
+      <forward name="success" path="/WEB-INF/pages/admin/pool.jsp"/>
+    </action>
+    <action path="/admin/createPatient" type="org.rti.zcore.dar.struts.action.CreateTestPatientAction">
+      <forward name="success" path="/home.do"/>
+    </action>
+    <action path="/admin/ruleList" type="org.rti.zcore.dynasite.struts.RuleListAction">
+      <forward name="success" path="/WEB-INF/pages/admin/ruleList.jsp"/>
+    </action>
+    <!-- test form -->
+    <action path="/admin/form/edittest" type="org.rti.zcore.dynasite.struts.EditFormAction" name="adminForm" scope="request" parameter="org.rti.zcore.Form" validate="false">
+      <forward name="success" path="/WEB-INF/pages/admin/test.jsp"/>
+    </action>
+    <!-- admin pageItems -->
+    <action path="/admin/pageItem/save" type="org.rti.zcore.dynasite.struts.SavePageItemAction" name="adminPageItem" scope="request" validate="false" input="/WEB-INF/pages/admin/pageItem.jsp" parameter="org.rti.zcore.PageItem">
+      <forward name="success" path="/admin/form/edit.do"/>
+    </action>
+    <action path="/admin/pageItem/edit" type="org.rti.zcore.dynasite.struts.EditPageItemAction" name="adminPageItem" scope="request" parameter="org.rti.zcore.PageItem" validate="false">
+      <forward name="success" path="/WEB-INF/pages/admin/pageItem.jsp"/>
+    </action>
+    <action path="/admin/pageItem/new" type="org.rti.zcore.dynasite.struts.CreateNewPageItemAction" name="adminPageItem" scope="request" parameter="org.rti.zcore.PageItem" validate="false">
+      <forward name="success" path="/WEB-INF/pages/admin/pageItem.jsp"/>
+    </action>
+    <action path="/admin/pageItem/delete" type="org.rti.zcore.dynasite.struts.DeletePageItemAction" parameter="org.rti.zcore.PageItem">
+      <forward name="success" path="/admin/form/edit.do"/>
+    </action>
+    <!-- admin enumerations -->
+    <action path="/admin/enumeration/sort" type="org.rti.zcore.dynasite.struts.SortEnumsAction" parameter="org.rti.zcore.FieldEnumeration">
+      <forward name="success" path="/admin/form/edit.do"/>
+    </action>
+    <!-- admin rules -->
+    <action path="/admin/rule/save" type="org.rti.zcore.dynasite.struts.SaveRuleDefinitionAction" name="adminRule" scope="request" validate="false" input="/WEB-INF/pages/admin/rule.jsp" parameter="org.rti.zcore.RuleDefinition">
+      <forward name="success-form" path="/admin/form/edit.do"/>
+      <forward name="success-field" path="/admin/pageItem/edit.do"/>
+    </action>
+    <action path="/admin/rule/new" type="org.rti.zcore.dynasite.struts.CreateNewRuleAction" name="adminRule" scope="request" parameter="org.rti.zcore.RuleDefinition" validate="false">
+      <forward name="success" path="/WEB-INF/pages/admin/rule.jsp"/>
+    </action>
+    <!-- admin sites -->
+    <action path="/admin/sites/list" type="org.rti.zcore.dynasite.struts.SiteListAction">
+      <forward name="success" path="/WEB-INF/pages/admin/sites/list.jsp"/>
+    </action>
+    <action path="/admin/sites/save" type="org.rti.zcore.dynasite.struts.SaveSiteAction" name="adminSite" scope="request" validate="false" input="/WEB-INF/pages/admin/sites/list.jsp" parameter="org.rti.zcore.Site">
+      <forward redirect="true" name="success" path="/admin/sites/list.do"/>
+    </action>
+    <action path="/admin/sites/edit" type="org.rti.zcore.dynasite.struts.SaveSiteAction" name="adminSite" scope="request" parameter="org.rti.zcore.Site" validate="false">
+      <forward name="success" path="/admin/sites/list.do"/>
+    </action>
+    <!-- admin flow -->
+    <action path="/admin/flow/list" type="org.rti.zcore.dynasite.struts.FlowListAction">
+      <forward name="success" path="/WEB-INF/pages/admin/flow/list.jsp"/>
+    </action>
+    <action path="/admin/flow/save" type="org.rti.zcore.dynasite.struts.SaveFlowAction" name="adminFlow" scope="request" validate="false" input="/WEB-INF/pages/admin/flow/list.jsp" parameter="org.rti.zcore.Flow">
+      <forward redirect="true" name="success" path="/admin/flow/list.do"/>
+    </action>
+    <action path="/admin/flow/edit" type="org.rti.zcore.dynasite.struts.SaveFlowAction" name="adminFlow" scope="request" parameter="org.rti.zcore.Flow" validate="false">
+      <forward name="success" path="/admin/flow/list.do"/>
+    </action>
+    <!-- admin users -->
+    <action path="/admin/users" type="org.rti.zcore.dynasite.struts.UserAdminAction" name="userSearch" scope="request" validate="false" input="/WEB-INF/pages/admin/users.jsp">
+      <forward name="success" path="/WEB-INF/pages/admin/users.jsp"/>
+    </action>
+    <action path="/admin/deletePatient" name="lazyForm" type="org.rti.zcore.struts.action.persistence.DeletePatientAction"/>
+    <action path="/admin/resetFlow" type="org.rti.zcore.dynasite.struts.ResetFlowAction">
+      <forward name="success" path="/home.do"/>
+    </action>
+    <!-- admin site server - data center  -->
+    <action path="/admin/server/save" type="org.rti.zcore.sync.struts.ServerAction" name="serverBean" scope="request" validate="false" input="/WEB-INF/pages/admin/server.jsp" parameter="org.rti.zcore.Server">
+      <forward redirect="true" name="success" path="/admin/server/new.do"/>
+    </action>
+    <action path="/admin/server/new" type="org.rti.zcore.sync.struts.ServerAction" name="serverBean" scope="request" parameter="org.rti.zcore.sync.Server">
+      <forward name="success" path="/WEB-INF/pages/admin/server.jsp"/>
+    </action>
+    <!-- admin site propogate - update software on remote sites -->
+    <action path="/admin/propogateUpdates" type="org.rti.zcore.zeprs.struts.admin.PropogateUpdateAction">
+      <forward name="success" path="/WEB-INF/pages/admin/updated_sites.jsp"/>
+    </action>
+    <!-- admin sql administration   -->
+    <action path="/admin/sql/save" type="org.rti.zcore.dynasite.struts.SqlAction" name="sql" scope="request" validate="false" input="/WEB-INF/pages/admin/sql.jsp" parameter="org.rti.zcore.dynasite.ApplicationUpdate">
+      <forward name="success" path="/WEB-INF/pages/admin/sql.jsp"/>
+    </action>
+    <action path="/admin/sql/new" type="org.rti.zcore.dynasite.struts.SqlAction" parameter="org.rti.zcore.dynasite.ApplicationUpdate">
+      <forward name="success" path="/WEB-INF/pages/admin/sql.jsp"/>
+    </action>
+    <!-- admin database update   -->
+    <action path="/admin/sql/update" type="org.rti.zcore.dynasite.struts.UpdateDatabaseAction" scope="request">
+      <forward name="success" path="/admin/message.do" redirect="true"/>
+    </action>
+    <!-- admin update application  -->
+    <action path="/admin/app/update" type="org.rti.zcore.dynasite.struts.UpdateApplicationAction" scope="request">
+      <forward name="success" path="/admin/message.do" redirect="true"/>
+    </action>
+    <!-- General status   -->
+    <action path="/admin/message" type="org.rti.zcore.dynasite.struts.MessageAction">
+      <forward name="success" path="/WEB-INF/pages/admin/message.jsp"/>
+    </action>
+    <!-- admin appupdates  -->
+    <action path="/admin/appupdates/view" type="org.rti.zcore.dynasite.struts.ApplicationUpdateAction" parameter="org.rti.zcore.dynasite.ApplicationUpdate">
+      <forward name="success" path="/WEB-INF/pages/admin/appupdates.jsp"/>
+    </action>
+    <action path="/admin/appupdates/delete" type="org.rti.zcore.dynasite.struts.ApplicationUpdateAction" parameter="org.rti.zcore.dynasite.ApplicationUpdate">
+      <forward name="success" path="/WEB-INF/pages/admin/appupdates.jsp"/>
+    </action>
+    <!--  admin backups -->
+    <action path="/admin/backups/backup" type="org.rti.zcore.dynasite.struts.BackupAction">
+      <forward name="success" path="/admin/backups/done.do" redirect="true"/>
+    </action>
+    <action path="/admin/backups/done" type="org.rti.zcore.dynasite.struts.BackupListAction">
+      <forward name="success" path="/WEB-INF/pages/success.jsp"/>
+    </action>
+    <!-- admin form import  -->
+    <action path="/admin/form/import" type="org.rti.zcore.dynasite.struts.ImportFormAction">
+      <forward name="success" path="/WEB-INF/pages/admin/import_forms.jsp"/>
+    </action>
+    <!-- admin field list import  -->
+    <action path="/admin/field/import" type="org.rti.zcore.dynasite.struts.ImportFieldListAction">
+      <forward name="success" path="/WEB-INF/pages/admin/import_fields.jsp"/>
+    </action>
+    <!-- admin form delete  -->
+    <action path="/admin/form/delete" type="org.rti.zcore.dynasite.struts.DeleteFormAction">
+      <forward name="success" path="/admin/formList.do" redirect="true"/>
+    </action>
+    <!-- problems -->
+    <action path="/problems/save" type="org.rti.zcore.dynasite.struts.SaveObjectAction" name="problem" scope="request" validate="false" input="/WEB-INF/pages/patient_records/patient_chart.jsp" parameter="org.rti.zcore.Problem">
+      <forward name="success" path="/problem.do"/>
+    </action>
+    <action path="/problems/correct" type="org.rti.zcore.struts.action.CorrectProblemAction" name="problem" scope="request" validate="false" input="/WEB-INF/pages/patient_records/patient_chart.jsp" parameter="org.rti.zcore.Problem">
+      <forward name="success" path="/problem.do"/>
+    </action>
+    <action path="/problems/comment/save" type="org.rti.zcore.dynasite.struts.SaveObjectAction" name="comment" scope="request" validate="false" input="/WEB-INF/pages/patient_records/patient_chart.jsp" parameter="org.rti.zcore.Comment">
+      <forward name="success" path="/problem.do"/>
+    </action>
+    <!-- outcome -->
+    <action path="/outcome/correct" type="org.rti.zcore.struts.action.CorrectOutcomeAction" name="outcomeform" scope="request" validate="false" input="/WEB-INF/pages/patient_records/patient_home.jsp" parameter="org.rti.zcore.rules.impl.OutcomeImpl">
+      <forward name="success" path="/problem.do"/>
+    </action>
+    <!-- Compact Derby db -->
+    <action path="/admin/derbyDatabaseCompact" type="org.rti.zcore.dynasite.struts.DerbyDatabaseSizeAction">
+      <forward name="success" path="/admin/derbyDatabaseSizeList.do" redirect="true"/>
+    </action>
+    <action path="/admin/derbyDatabaseSizeList" type="org.rti.zcore.dynasite.struts.DerbyDatabaseSizeAction">
+      <forward name="success" path="/WEB-INF/pages/admin/derby_db_size.jsp"/>
+    </action>
+    <!-- quartz scheduler -->
+    <action path="/admin/scheduler" type="org.rti.zcore.dynasite.struts.SchedulerAction">
+      <forward name="success" path="/admin/schedulerList.do" redirect="true"/>
+    </action>
+    <action path="/admin/schedulerList" type="org.rti.zcore.dynasite.struts.SchedulerAction">
+      <forward name="success" path="/WEB-INF/pages/success.jsp"/>
+    </action>
+    <!-- Set Dynasite Server Status -->
+    <action path="/admin/setServerStatus" type="org.rti.zcore.dynasite.struts.SetServerStatusAction">
+      <forward name="success" path="/admin/setServerStatusMessage.do"/>
+    </action>
+    <action path="/admin/setServerStatusMessage" type="org.rti.zcore.dynasite.struts.SetServerStatusAction">
+      <forward name="success" path="/WEB-INF/pages/success.jsp"/>
+    </action>
+    <!-- Application Definition -->
+    <action path="/admin/applicationDefinition" type="org.rti.zcore.dynasite.struts.ApplicationDefinitionAction">
+      <forward name="success" path="/WEB-INF/pages/admin/application_definition.jsp"/>
+    </action>
+    <!-- Locale -->
+    <action path="/locale" type="org.rti.zcore.dynasite.struts.LocaleAction">
+      <forward name="success" path="/home.do" redirect="true"/>
+    </action>
+    <!-- add locale form -->
+    <action path="/admin/locale/save" type="org.rti.zcore.dynasite.struts.AddLocaleAction" name="lazyForm" validate="true">
+      <forward name="success" path="/admin/formList.do" redirect="true"/>
+    </action>
+    <action path="/admin/locale/new" type="org.rti.zcore.dynasite.struts.AddLocaleAction">
+      <forward name="success" path="/WEB-INF/pages/admin/add_locale.jsp"/>
+    </action>
+    <!-- Translate Dynasite Form -->
+    <action path="/admin/form/locale/edit" type="org.rti.zcore.dynasite.struts.EditFormLocaleDictionaryAction" name="lazyForm" scope="request" parameter="org.rti.zcore.Form" validate="false">
+      <forward name="success" path="/WEB-INF/pages/admin/locale_fields.jsp"/>
+    </action>
+    <action path="/admin/form/locale/save" type="org.rti.zcore.dynasite.struts.SaveFormLocaleDictionaryAction" name="lazyForm" validate="true">
+      <forward name="success" path="/admin/formList.do" redirect="true"/>
+    </action>
+    <!-- Translate Properties -->
+    <action path="/admin/properties/edit" type="org.rti.zcore.dynasite.struts.EditPropertiesAction" name="lazyForm" scope="request" validate="false">
+      <forward name="success" path="/WEB-INF/pages/admin/properties_form.jsp"/>
+    </action>
+    <action path="/admin/properties/save" type="org.rti.zcore.dynasite.struts.SavePropertiesAction" name="lazyForm" validate="false">
+      <forward name="success" path="/admin/properties/edit.do"/>
+    </action>
+    <!-- Sort Properties -->
+    <action path="/admin/sortProperties" type="org.rti.zcore.dynasite.struts.SortPropertyFileAction">
+      <forward name="success" path="/admin/home.do" redirect="true"/>
+    </action>
+    <!-- Delete Locale  -->
+    <action path="/admin/locale/delete" type="org.rti.zcore.dynasite.struts.DeleteLocaleAction">
+      <forward name="success" path="/admin/home.do" redirect="true"/>
+    </action>
+    <action path="/admin/verifySchema" type="org.rti.zcore.dynasite.struts.VerifySchemaAction">
+      <forward name="success" path="/WEB-INF/pages/admin/message.jsp"/>
+    </action>
+    <!--  Sync -->
+    <action path="/admin/export" type="org.rti.zcore.sync.struts.ExportClinicAction">
+      <forward name="success" path="/admin/subscription/new.do" redirect="true"/>
+    </action>
+    <action path="/admin/import" type="org.rti.zcore.sync.struts.ImportFeedAction">
+      <forward name="success" path="/admin/subscription/new.do" redirect="true"/>
+    </action>
+    <!-- admin site subscription - sync  -->
+    <action path="/admin/subscription/save" type="org.rti.zcore.sync.struts.SubscribeAction" name="subscribe" scope="request" validate="false" input="/WEB-INF/pages/admin/subscription.jsp" parameter="org.rti.zcore.sync.Subscription">
+      <forward redirect="true" name="success" path="/admin/subscription/new.do"/>
+    </action>
+    <action path="/admin/subscription/new" type="org.rti.zcore.sync.struts.SubscribeAction" parameter="org.rti.zcore.sync.Subscription">
+      <forward name="success" path="/WEB-INF/pages/admin/subscription.jsp"/>
+    </action>
+    <action path="/admin/subscription/delete" type="org.rti.zcore.sync.struts.DeleteSubscriptionAction">
+      <forward redirect="true" name="success" path="/admin/subscription/new.do"/>
+    </action>
+    <!-- admin site publishing - sync  -->
+    <action path="/admin/publisher/save" type="org.rti.zcore.sync.struts.PublisherAction" name="publish" scope="request" validate="false" input="/WEB-INF/pages/admin/publish_settings.jsp" parameter="org.rti.zcore.sync.Publisher">
+      <forward redirect="true" name="success" path="/admin/publisher/new.do"/>
+    </action>
+    <action path="/admin/publisher/new" type="org.rti.zcore.sync.struts.PublisherAction" parameter="org.rti.zcore.sync.Publisher">
+      <forward name="success" path="/WEB-INF/pages/admin/publisher.jsp"/>
+    </action>
+    <!-- Import data from json file  -->
+    <action path="/admin/data/import" type="org.rti.zcore.sync.struts.ImportDataAction">
+      <forward name="success" path="/admin/home.do" redirect="true"/>
+    </action>
+    <!-- Verify sync form -->
+    <action path="/admin/sync/list" type="org.rti.zcore.sync.struts.VerifyAction" name="lazyForm" validate="true">
+      <forward name="success" path="/WEB-INF/pages/admin/sync/list.jsp"/>
+    </action>
+    <action path="/admin/sync/verify" type="org.rti.zcore.sync.struts.VerifyAction">
+      <forward name="success" path="/WEB-INF/pages/admin/sync/index.jsp"/>
+    </action>
+    <!-- dynasite generator -->
+    <action path="/admin/dynagen" type="org.rti.zcore.dynasite.struts.SourceGeneratorAction">
+      <forward name="success" path="/WEB-INF/pages/admin/generate_done.jsp"/>
+    </action>
+    <action path="/admin/records/list" type="org.rti.zcore.dar.struts.action.ListAction">
+      <forward name="success" path="/WEB-INF/pages/admin/records/record.jsp"/>
+    </action>
+    <action path="/admin/records/add" type="org.rti.zcore.dynasite.struts.records.AddAction">
+      <forward name="success" path="/admin/records/list.do" redirect="true"/>
+    </action>
+    <action path="/admin/records/edit" type="org.rti.zcore.dynasite.struts.records.EditAction">
+      <forward name="success" path="/admin/records/list.do" redirect="true"/>
+    </action>
+    <action path="/admin/records/delete" type="org.rti.zcore.dynasite.struts.records.DeleteAction">
+      <forward name="success" path="/admin/records/list.do" redirect="true"/>
+    </action>
+    <action path="/admin/deleteEncounter" type="org.rti.zcore.struts.action.persistence.DeleteEncounterAction">
+      <forward name="success" path="/home.do"/>
+    </action>
+    <!--  DAR-specific actions -->
+    <action path="/admin/restorePatient" type="org.rti.zcore.struts.action.persistence.RestorePatientAction" name="RestoreBean" scope="request" validate="false" parameter="org.rti.zcore.Restore" input="/WEB-INF/pages/admin/restore_patient.jsp">
+      <forward name="success" path="/WEB-INF/pages/admin/restore_patient.jsp"/>
+    </action>
+    <action path="/deleteOutcome" type="org.rti.zcore.struts.action.persistence.DeleteOutcomeAction">
+      <forward name="success" path="/problem.do"/>
+    </action>
+    <action path="/deleteProblem" type="org.rti.zcore.struts.action.persistence.DeleteProblemAction">
+      <forward name="success" path="/problem.do"/>
+    </action>
+    <action path="/chart" type="org.rti.zcore.struts.action.ChartFormAction">
+      <forward name="input" path="/WEB-INF/pages/search/search.jsp"/>
+      <forward name="success" path="/WEB-INF/pages/encounters/form_chart.jsp"/>
+    </action>
+    <action path="/recordList" type="org.rti.zcore.struts.action.PatientRecordListAction">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/ChooseReportAction" type="org.rti.zcore.dar.report.ChooseReportAction" name="chooseReportForm">
+      <forward name="input" path="/WEB-INF/pages/reports/index.jsp"/>
+      <forward name="success" path="/WEB-INF/pages/reports/showReport.jsp"/>
+      <forward name="xml" path="/WEB-INF/pages/reports/xml.jsp"/>
+      <forward name="SaveSummary" path="/WEB-INF/pages/reports/saveSummary.jsp"/>
+      <forward name="EligibleForArtReport" path="/WEB-INF/pages/reports/eligibleForArtReport.jsp"/>
+      <forward name="OIDailyActivityReport" path="/WEB-INF/pages/reports/oiDailyActivityReport.jsp"/>
+      <forward name="ARTAdultDailyActivityReport" path="/WEB-INF/pages/reports/artAdultDailyActivityReport.jsp"/>
+      <forward name="ARTChildDailyActivityReport" path="/WEB-INF/pages/reports/artChildDailyActivityReport.jsp"/>
+      <forward name="OIARTAdultDailyActivityReport" path="/WEB-INF/pages/reports/oiArtAdultDailyActivityReport.jsp"/>
+      <forward name="CDRRArtReport" path="/WEB-INF/pages/reports/cdrrArtReport.jsp"/>
+      <forward name="CDRROIReport" path="/WEB-INF/pages/reports/cdrrOIReport.jsp"/>
+      <forward name="MonthlyArtReport" path="/WEB-INF/pages/reports/monthlyArtReport.jsp"/>
+      <forward name="AppointmentRegister" path="/WEB-INF/pages/reports/appointmentRegister.jsp"/>
+      <forward name="DefaultersRegister" path="/WEB-INF/pages/reports/defaultersRegister.jsp"/>
+      <forward name="SiteStatisticsReport" path="/WEB-INF/pages/reports/site_statistics.jsp"/>
+      <forward name="StockUsageReport" path="/WEB-INF/pages/file_link.jsp"/>
+      <forward name="RegimenChangeReport" path="/WEB-INF/pages/reports/regimen_change_report.jsp"/>
+    </action>
+    <!-- Site statistics -->
+    <action path="/reports/statistics" type="org.rti.zcore.dar.report.SiteStatisticsReport">
+      <forward name="success" path="/WEB-INF/pages/reports/site_statistics.jsp"/>
+    </action>
+    <!-- combined reports -->
+    <action path="/reports/combined/list" type="org.rti.zcore.dar.struts.action.report.CombinedReportListAction">
+      <forward name="success" path="/WEB-INF/pages/file_link.jsp"/>
+    </action>
+    <action path="/reports/combined/gen" type="org.rti.zcore.dar.report.CombinedReportAction">
+      <forward name="success" path="/reports/combined/list.do" redirect="true"/>
+    </action>
+    <!-- delete all stock -->
+    <action path="/admin/deleteStock" type="org.rti.zcore.dar.struts.action.DeleteStockAction">
+      <forward name="success" path="/home.do" redirect="true"/>
+    </action>
+    <!-- view stock changes -->
+    <action path="/reports/stockChanges" type="org.rti.zcore.dar.struts.action.report.StockChangesAction">
+      <forward name="success" path="/WEB-INF/pages/reports/stock_changes.jsp"/>
+    </action>
+    <!-- fix balances -->
+    <action path="/admin/updateBalance" type="org.rti.zcore.dar.struts.action.UpdateBalanceAction">
+      <forward name="success" path="/WEB-INF/pages/success.jsp"/>
+    </action>
+    <!-- deletes all admin records, except for stock and user related records -->
+    <action path="/admin/deleteAdmin" name="lazyForm" type="org.rti.zcore.dar.struts.action.DeleteAdminRecordAction"/>
+    <!-- config download pending updates  -->
+    <action path="/config/pending/update" type="org.rti.zcore.dynasite.struts.PendingUpdatesAction" scope="request">
+      <forward name="success" path="/config/pending.do" redirect="true"/>
+    </action>
+    <action path="/config/pending" type="org.rti.zcore.dynasite.struts.PendingUpdatesAction" scope="request">
+      <forward name="success" path="/WEB-INF/pages/config/updates.jsp"/>
+    </action>
+    <!-- config manual updates  -->
+    <action path="/config/manualUpdate" type="org.rti.zcore.dynasite.struts.ManualUpdatesAction" name="lazyForm" parameter="start">
+      <forward name="success" path="/config/manualUpdate/updateProgress.do" redirect="true"/>
+    </action>
+    <action path="/config/manualUpdate/updateProgress" type="org.rti.zcore.dynasite.struts.ManualUpdatesAction" scope="request">
+      <forward name="success" path="/WEB-INF/pages/config/manual_update.jsp"/>
+      <forward name="complete" path="/config/manualUpdate/updateComplete.do" redirect="true"/>
+      <forward name="findDbPath" path="/config/manualUpdate/findDbPath.do" redirect="true"/>
+    </action>
+    <action path="/config/manualUpdate/updateComplete" type="org.rti.zcore.dynasite.struts.ManualUpdatesAction" scope="request">
+      <forward name="success" path="/WEB-INF/pages/config/manual_update_complete.jsp"/>
+      <forward name="complete" path="/WEB-INF/pages/config/manual_update_complete.jsp"/>
+    </action>
+    <action path="/config/manualUpdate/findDbPath" type="org.rti.zcore.dynasite.struts.ManualUpdatesAction" scope="request">
+      <forward name="success" path="/WEB-INF/pages/config/manual_update_findPath.jsp"/>
+    </action>
+    <action path="/config/manualUpdate/saveDbPath" type="org.rti.zcore.dynasite.struts.ManualUpdatesAction" name="lazyForm" parameter="saveDbPath">
+      <forward redirect="true" name="success" path="/config/manualUpdate/updateProgress.do"/>
+    </action>
+    <!--  decrypt a file -->
+    <action path="/admin/decrypt/save" type="org.rti.zcore.dynasite.struts.DecryptAction" scope="request">
+      <forward name="success" path="/admin/message.do" redirect="true"/>
+    </action>
+    <action path="/admin/decrypt/list" type="org.rti.zcore.dynasite.struts.DecryptAction">
+      <forward name="success" path="/WEB-INF/pages/admin/decrypt.jsp"/>
+    </action>
+    <action path="/Appointment/new" type="org.rti.zcore.struts.action.PatientRecordListAction" name="Appointment" validate="false" parameter="Appointment" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/patient_record_list.jsp"/>
+    </action>
+    <action path="/Appointment/save" type="org.rti.zcore.dar.struts.action.FormAction" name="Appointment" validate="true" input="/Appointment/new.do" parameter="Appointment" scope="request"/>
+    <action path="/Appointment/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="Appointment" validate="false" parameter="Appointment" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/PatientStatus_changes/new" type="org.rti.zcore.struts.action.PatientRecordListAction" name="PatientStatus_changes" validate="false" parameter="PatientStatus_changes" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/patient_record_list.jsp"/>
+    </action>
+    <action path="/PatientStatus_changes/save" type="org.rti.zcore.dar.struts.action.FormAction" name="PatientStatus_changes" validate="true" input="/PatientStatus_changes/new.do" parameter="PatientStatus_changes" scope="request"/>
+    <action path="/PatientStatus_changes/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="PatientStatus_changes" validate="false" parameter="PatientStatus_changes" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/RegimenItem_bridge/new" type="org.rti.zcore.dar.struts.action.ListAction" name="RegimenItem_bridge" validate="false" parameter="RegimenItem_bridge" scope="request">
+      <forward name="success" path="/WEB-INF/pages/admin/records/record.jsp"/>
+    </action>
+    <action path="/RegimenItem_bridge/save" type="org.rti.zcore.dar.struts.action.FormAction" name="RegimenItem_bridge" validate="true" input="/RegimenItem_bridge/new.do" parameter="RegimenItem_bridge" scope="request">
+      <forward name="success" path="/admin/records/list.do?formId=181" redirect="true"/>
+    </action>
+    <action path="/RegimenItem_bridge/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="RegimenItem_bridge" validate="false" parameter="RegimenItem_bridge" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/PatientCondition/new" type="org.rti.zcore.struts.action.PatientRecordListAction" name="PatientCondition" validate="false" parameter="PatientCondition" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/patient_record_list.jsp"/>
+    </action>
+    <action path="/PatientCondition/save" type="org.rti.zcore.dar.struts.action.FormAction" name="PatientCondition" validate="true" input="/PatientCondition/new.do" parameter="PatientCondition" scope="request"/>
+    <action path="/PatientCondition/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="PatientCondition" validate="false" parameter="PatientCondition" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/ArtRegimen/new" type="org.rti.zcore.struts.action.PatientRecordListAction" name="ArtRegimen" validate="false" parameter="ArtRegimen" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/patient_record_list.jsp"/>
+    </action>
+    <action path="/ArtRegimen/save" type="org.rti.zcore.dar.struts.action.FormAction" name="ArtRegimen" validate="true" input="/ArtRegimen/new.do" parameter="ArtRegimen" scope="request"/>
+    <action path="/ArtRegimen/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="ArtRegimen" validate="false" parameter="ArtRegimen" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/PatientRegistration/new" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="PatientRegistration" validate="false" parameter="PatientRegistration" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/PatientRegistration/save" type="org.rti.zcore.dar.struts.action.FormAction" name="PatientRegistration" validate="true" input="/PatientRegistration/new.do" parameter="PatientRegistration" scope="request"/>
+    <action path="/PatientRegistration/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="PatientRegistration" validate="false" parameter="PatientRegistration" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/StockControl/new" type="org.rti.zcore.dar.struts.action.ListAction" name="StockControl" validate="false" parameter="StockControl" scope="request">
+      <forward name="success" path="/WEB-INF/pages/admin/records/record.jsp"/>
+    </action>
+    <action path="/StockControl/save" type="org.rti.zcore.dar.struts.action.FormAction" name="StockControl" validate="true" input="/StockControl/new.do" parameter="StockControl" scope="request">
+      <forward name="success" path="/admin/records/list.do?formId=161" redirect="true"/>
+    </action>
+    <action path="/StockControl/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="StockControl" validate="false" parameter="StockControl" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/UserInfo/new" type="org.rti.zcore.dar.struts.action.ListAction" name="UserInfo" validate="false" parameter="UserInfo" scope="request">
+      <forward name="success" path="/WEB-INF/pages/admin/records/record.jsp"/>
+    </action>
+    <action path="/UserInfo/save" type="org.rti.zcore.dar.struts.action.FormAction" name="UserInfo" validate="true" input="/UserInfo/new.do" parameter="UserInfo" scope="request">
+      <forward name="success" path="/admin/records/list.do?formId=170" redirect="true"/>
+    </action>
+    <action path="/UserInfo/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="UserInfo" validate="false" parameter="UserInfo" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/RegimenGroup/new" type="org.rti.zcore.dar.struts.action.ListAction" name="RegimenGroup" validate="false" parameter="RegimenGroup" scope="request">
+      <forward name="success" path="/WEB-INF/pages/admin/records/record.jsp"/>
+    </action>
+    <action path="/RegimenGroup/save" type="org.rti.zcore.dar.struts.action.FormAction" name="RegimenGroup" validate="true" input="/RegimenGroup/new.do" parameter="RegimenGroup" scope="request">
+      <forward name="success" path="/admin/records/list.do?formId=128" redirect="true"/>
+    </action>
+    <action path="/RegimenGroup/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="RegimenGroup" validate="false" parameter="RegimenGroup" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/Regimen/new" type="org.rti.zcore.dar.struts.action.ListAction" name="Regimen" validate="false" parameter="Regimen" scope="request">
+      <forward name="success" path="/WEB-INF/pages/admin/records/record.jsp"/>
+    </action>
+    <action path="/Regimen/save" type="org.rti.zcore.dar.struts.action.FormAction" name="Regimen" validate="true" input="/Regimen/new.do" parameter="Regimen" scope="request">
+      <forward name="success" path="/admin/records/list.do?formId=129" redirect="true"/>
+    </action>
+    <action path="/Regimen/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="Regimen" validate="false" parameter="Regimen" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/ItemGroup/new" type="org.rti.zcore.dar.struts.action.ListAction" name="ItemGroup" validate="false" parameter="ItemGroup" scope="request">
+      <forward name="success" path="/WEB-INF/pages/admin/records/record.jsp"/>
+    </action>
+    <action path="/ItemGroup/save" type="org.rti.zcore.dar.struts.action.FormAction" name="ItemGroup" validate="true" input="/ItemGroup/new.do" parameter="ItemGroup" scope="request">
+      <forward name="success" path="/admin/records/list.do?formId=130" redirect="true"/>
+    </action>
+    <action path="/ItemGroup/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="ItemGroup" validate="false" parameter="ItemGroup" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/Item/new" type="org.rti.zcore.dar.struts.action.ListAction" name="Item" validate="false" parameter="Item" scope="request">
+      <forward name="success" path="/WEB-INF/pages/admin/records/record.jsp"/>
+    </action>
+    <action path="/Item/save" type="org.rti.zcore.dar.struts.action.FormAction" name="Item" validate="true" input="/Item/new.do" parameter="Item" scope="request">
+      <forward name="success" path="/admin/records/list.do?formId=131" redirect="true"/>
+    </action>
+    <action path="/Item/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="Item" validate="false" parameter="Item" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/PatientItem/new" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="PatientItem" validate="false" parameter="PatientItem" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+    <action path="/PatientItem/save" type="org.rti.zcore.dar.struts.action.FormAction" name="PatientItem" validate="true" input="/PatientItem/new.do" parameter="PatientItem" scope="request"/>
+    <action path="/PatientItem/correct" type="org.rti.zcore.dar.struts.action.FormDisplayAction" name="PatientItem" validate="false" parameter="PatientItem" scope="request">
+      <forward name="success" path="/WEB-INF/pages/encounters/encounter_form.jsp"/>
+    </action>
+  </action-mappings>
+  <message-resources parameter="resources.forms.PatientItem" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="PatientItemMessages"/>
+  <message-resources parameter="resources.forms.Item" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="ItemMessages"/>
+  <message-resources parameter="resources.forms.ItemGroup" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="ItemGroupMessages"/>
+  <message-resources parameter="resources.forms.Regimen" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="RegimenMessages"/>
+  <message-resources parameter="resources.forms.RegimenGroup" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="RegimenGroupMessages"/>
+  <message-resources parameter="resources.forms.UserInfo" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="UserInfoMessages"/>
+  <message-resources parameter="resources.forms.StockControl" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="StockControlMessages"/>
+  <message-resources parameter="resources.forms.PatientRegistration" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="PatientRegistrationMessages"/>
+  <message-resources parameter="resources.forms.ArtRegimen" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="ArtRegimenMessages"/>
+  <message-resources parameter="resources.forms.PatientCondition" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="PatientConditionMessages"/>
+  <message-resources parameter="resources.forms.RegimenItem_bridge" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="RegimenItem_bridgeMessages"/>
+  <message-resources parameter="resources.forms.PatientStatus_changes" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="PatientStatus_changesMessages"/>
+  <message-resources parameter="resources.forms.Appointment" factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" null="false" key="AppointmentMessages"/>
+  <message-resources factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" parameter="resources.ApplicationResources" null="false" key="ApplicationResources"/>
+  <message-resources factory="org.rti.zcore.utils.struts.i18n.ReloadablePropertyMessageResourcesFactory" parameter="resources.TemplateResources" null="false" key="TemplateResources"/>
+  <message-resources parameter="resources.application" null="false"/>
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/dynaValidation.xml"/>
+  </plug-in>
+</struts-config>

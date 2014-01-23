@@ -1,0 +1,7 @@
+[schemaupdate] alter table outcome add column import_outcome_id bigint
+[schemaupdate] alter table encounter add column import_encounter_id bigint
+[schemaupdate] alter table problem add column import_problem_id bigint
+
+BUILD SUCCESSFUL
+
+installed on lusaka server 3/9/2006

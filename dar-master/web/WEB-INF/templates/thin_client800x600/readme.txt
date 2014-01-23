@@ -1,0 +1,1 @@
+This is for the Baobab Health Netpliance-based think clients, which use 800x600 display resolution.

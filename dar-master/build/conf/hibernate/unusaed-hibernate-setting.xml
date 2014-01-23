@@ -1,0 +1,7 @@
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.Provider</property>
+        <property name="c3p0.acquire_increment">5</property>
+        <property name="c3p0.idle_test_period">3000</property> <!-- seconds -->
+        <property name="c3p0.max_size">200</property>
+        <property name="c3p0.min_size">5</property>
+        <property name="c3p0.timeout">3000</property> <!-- seconds -->

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<list>
+  <org.rti.zcore.FormType>
+    <id>5</id>
+    <name>Admin</name>
+  </org.rti.zcore.FormType>
+  <org.rti.zcore.FormType>
+    <id>1</id>
+    <name>Basic Form</name>
+  </org.rti.zcore.FormType>
+  <org.rti.zcore.FormType>
+    <id>7</id>
+    <name>Chart</name>
+  </org.rti.zcore.FormType>
+  <org.rti.zcore.FormType>
+    <id>8</id>
+    <name>List</name>
+  </org.rti.zcore.FormType>
+  <org.rti.zcore.FormType>
+    <id>6</id>
+    <name>Patient Bridge</name>
+  </org.rti.zcore.FormType>
+</list>

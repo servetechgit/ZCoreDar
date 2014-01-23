@@ -1,0 +1,982 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+    <head>
+        <title>demo Bauleni Patient Record 15 Nov 2004  09:11</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <script type="text/javascript" src="/zeprs/js/browser_detect.js"></script>
+        <script src="/zeprs/js/js.jsp"></script>
+
+
+        <script language="JavaScript" TYPE="text/javascript" src="/zeprs/config/javascript.js"></script>
+        <script language="JavaScript" TYPE="text/javascript" src="/zeprs/js/apgar.js"></script>
+
+<script type="text/javascript">
+window.onload=function(){tableruler();}
+</script>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var output = '';
+            if (browser.isGecko)
+            {
+            output += '<link rel="stylesheet" href="/zeprs/css/styles-moz.css" charset="ISO-8859-1" type="text/css">';
+            }
+            else
+            {
+            output += '<link rel="stylesheet" href="/zeprs/css/styles-ie.css" charset="ISO-8859-1" type="text/css">';
+            }
+            document.write(output);
+            //]]>
+         </script>
+         <link rel="stylesheet" href="/zeprs/config/default.css" charset="ISO-8859-1" type="text/css">
+    </head>
+
+
+
+
+
+
+
+
+
+        <body onload="startClock();toggleProblemForms('probForm','commentForm');">
+
+
+
+
+
+    <div id="banner-home">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td valign="left" background="/zeprs/images/banner_bkgd.gif" height="46" width="100" ><span class="serviceHeader"><a href="/zeprs/home.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD" border="0">&nbsp;&nbsp;&nbsp;&nbsp;ZEPRS</a></span></td>
+
+            <td background="/zeprs/images/banner_bkgd.gif" align="right"><a href="http://localhost/referral" target="_top">referral</a> | <a href="http://localhost/webmail" target="_top">webmail</a> | <a href="http://localhost/training" target="_top">training</a>&nbsp;&nbsp;</td>
+
+
+
+        </tr>
+    </table>
+    </div>
+
+
+    <div id="patientStatus">
+        <table cellpadding="0" cellspacing="0" bgColor =" white" summary="Patient Status Bar" width="100%">
+        <thead>
+            <tr class =" patientrowheader">
+                <th>Staff</th>
+
+                <th>Patient</th>
+                <th>NRC Number</th>
+                <th>District ID</th>
+                <th>EGA (calc)</th>
+                <th>Time</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td class =" patientrow">demo</td>
+                <td class =" patientrow"><a href="/zeprs/patientHome.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1" class="patient">Jones,Jane</a></td>
+                <td class =" patientrow">123456/78/9</td>
+                <td class =" patientrow">5040-123456</td>
+
+
+
+
+                    <td class =" patientrow">n/a</td>
+
+
+                <td class="patientrow"><input type="text" id="pcTime" size="7" class="clock" onfocus="this.blur()"/></td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div id="sidebar-a">
+        <div id="sidenavcontainer">
+
+            <ul id="navlist">
+                <li style="font-size: 11pt;"><a href="/zeprs/home.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Home</a></li>
+
+                <li><a href="/zeprs/demographics.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1">Demographics</a></li>
+                <li><a href="/zeprs/patientHome.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1" onclick="toggle_patient_summary('chartSum')">Chart</a></li>
+
+                <li><a href="/zeprs/problem.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1">Problem List</a></li>
+
+                <li><a href='/zeprs/patientTask.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1&amp;flowId=2'>History</a></li>
+
+                <li><a href='/zeprs/patientTask.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1&amp;flowId=1'>Antepartum</a></li>
+                <li><a href='/zeprs/patientTask.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1&amp;flowId=3'>Intrapartum</a></li>
+                <li><a href='/zeprs/patientTask.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1&amp;flowId=4'>Postnatal</a></li>
+                <li><a href='/zeprs/patientTask.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1&amp;flowId=5'>NICU</a></li>
+                <li><a href='/zeprs/patientTask.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1&amp;flowId=6'>Gyn</a></li>
+                <li><a href='/zeprs/patientTask.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1&amp;flowId=7'>Problem/Labor Visit</a></li>
+
+
+                <li style="margin: 0px 0px 0px 5px;">&nbsp;</li>
+                <li><a href="/zeprs/admin/home.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Admin</a></li>
+
+            </ul><!-- navlist -->
+        </div> <!-- sidenavcontainer -->
+    </div><!-- sidebar-a -->
+
+
+
+        <h2></h2>
+
+<div id="probSum">
+<h2>Problem List</h2>
+
+<div id="probList">
+   <div id="probListItems">
+    <table class="enhancedtable" width="200px">
+    <tr>
+        <th colspan="2">Active Problems</th>
+    </tr>
+
+
+    <tr>
+        <td class="enhancedtableheader">Problem</td>
+
+        <td class="enhancedtableheader">Date Created</td>
+    </tr>
+
+
+
+
+
+
+
+
+                <tr>
+                    <td><a href='/zeprs/problem.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?problemId=2&amp;patientId=1&amp;problemType=problem&amp;mode=edit'>Smattering of angst</a></td>
+                    <td width="50px" >28 Oct 04</td>
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <tr class="currentProblem">
+                    <td><a href='/zeprs/problem.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?problemId=1&amp;patientId=1&amp;problemType=problem&amp;mode=edit'>Broken ankle</a></td>
+                    <td></td>
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form2/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Previous Pregnancies</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+
+        <td colspan="2"><a href="/zeprs/form11/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Admission at Labour</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form28/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Postnatal Visits</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form33/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: UTH Neonatal Case Record</a></td>
+
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form41/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Gynaecological Case Record at UTH (only)</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form3/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Past Medical History</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+
+        <td colspan="2"><a href="/zeprs/form8/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Physical Exam</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form14/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Abdominal Palpation</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form31/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Post Natal Health Education</a></td>
+
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form36/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Infant Physical Examination</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form42/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Antenatal Complication</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+
+        <td colspan="2"><a href="/zeprs/form4/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Tetanus Toxoid (TT) Immunisation</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form9/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Laboratory Test Results</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form15/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Vaginal Examination at admission</a></td>
+
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form32/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Post Natal Infant</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form37/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Summary of Admission of Infant at NICU</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+
+        <td colspan="2"><a href="/zeprs/form43/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Puerperal Complication</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form5/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Past Surgical History</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form10/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Antenatal Record Exam and Subsequent Visits</a></td>
+
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form16/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Clinical Pelvimentry</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form38/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Outcome of Infant</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+
+        <td colspan="2"><a href="/zeprs/form44/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Ultrasound Result</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form17/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Observations for Latent Phase of 1st Stage of Labour</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form40/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Still Birth Delivery Record: Infant</a></td>
+
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form54/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Discharge</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form55/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Current Medicine</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+
+        <td colspan="2"><a href="/zeprs/form18/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Partograph/Active Phase of 1st Stage of Labour</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form45/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Summary of Admission to UTH During Pregnancy</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form56/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Drug History at initial visit</a></td>
+
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form19/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Description of Labour</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form20/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Duration of Labour</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+
+        <td colspan="2"><a href="/zeprs/form21/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Mode of Delivery</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form22/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Examination of Placenta</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form23/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Newborn</a></td>
+
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form24/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Infant at Discharge</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form25/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Postpartum Mother discharge</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+
+        <td colspan="2"><a href="/zeprs/form26/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Outcome</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+        <td colspan="2"><a href="/zeprs/form27/new.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD">Incomplete Form: Discharge Summary</a></td>
+        </tr>
+
+
+
+
+
+</table>
+        </div>
+    </div>
+
+
+
+
+<div id="inactiveProbList">
+   <div id="inactiveProbListItems">
+    <table class="enhancedtable" width="200px">
+    <tr>
+        <th colspan="2">Inactive Problems</th>
+    </tr>
+
+
+    <tr><td colspan="2"><span style="color:red">No active problems</span></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+<div id="commentList">
+        <div id="commentListItems">
+            <table class="enhancedtable" width="340px">
+                <tr>
+                    <th colspan="4">Comments for:
+
+
+                    <strong>Broken ankle</strong>
+                    <br/>Date of Onset: 2004-10-25
+
+                    </th>
+
+                </tr>
+                <tr>
+                    <td class="enhancedtableheader">Date</td>
+                    <td class="enhancedtableheader">Comment</td>
+                    <td class="enhancedtableheader">Action/Plan</td>
+                    <td class="enhancedtableheader">Staff</td>
+                </tr>
+
+
+
+                <tr>
+                    <td>28 Oct 04</td>
+                    <td><span id="shortcomment3">Mild infection
+
+                    </td>
+                    <td>Prescribed antibiotics</td><td>demo</td>
+                </tr>
+
+
+
+
+                <tr>
+
+                    <td>25 Oct 04</td>
+                    <td><span id="shortcomment1">Ouch!
+
+                    </td>
+                    <td>Let this one heal.</td><td>demo</td>
+                </tr>
+
+
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+<div id="probForms">
+
+
+
+
+
+
+            <p>
+            <a href='/zeprs/problem.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1&amp;problemType=problem&amp;mode=create'>Create Problem</a> |
+            <a href='/zeprs/problem.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD?patientId=1&amp;problemId=1&amp;problemType=problem&amp;mode=comment'>Add a Comment</a></p>
+
+            <div id="editprobForm">
+            <h2>Edit this Problem</h2>
+            <p>Broken ankle</p>
+
+
+            <p>Items marked with an asterix (<span class="asterix">*</span>) are required.</p>
+                <form name="problem" method="POST" action="/zeprs/problems/correct.do;jsessionid=314F88F29489CF66CFE1F3B8A0B821BD" onsubmit="return validateProblem(this);">
+                <input type="hidden" name="id" value="1">
+
+                <input type="hidden" name="patientId" value="1">
+                <input type="hidden" name="problemType" value="problem">
+                <div class="row">
+                <span class="label">Name of Problem:&nbsp;<span class="asterix">*</span> </span><span
+                class="formw"><input type="text" name="problemName" size="30" value="Broken ankle"></span>
+                </div>
+                <div class="row">
+                <span class="label">Status: </span><span class="formw">
+
+
+
+                <input type="radio" name="active" value="1" checked="checked"/>Active
+                <input type="radio" name="active" value="0" />Inactive
+
+
+
+                </span>
+                </div>
+                <div class="row">
+                <span class="label">Date of Onset: </span><span
+                class="formw">
+                <table>
+                <tr>
+                <td>test Broken ankle<a href="javascript://" onclick="showCalendar(2004,11,15,'MM/dd/yyyy','problem','onsetDate',event,2003,2006);">
+
+                <img alt="Select Date" border="0" src="/zeprs/config/calendar.gif"></a> <input type="text" name="onsetDate" size="9" value="10/25/2004" onfocus="this.blur()" class="disabled-date" title="Select Date">
+                <div id="slcalcodonsetDate" style="position:absolute; left:200px; top:100px; z-index:10;visibility:hidden;">
+                <script>printCalendar("Sun","Mon","Tue","Wed","Thu","Fri","Sat","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",15,11,2004,"onsetDate");</script></div>
+                <img name="field127required" src="/zeprs/config/clearpixel.gif"></td>
+                </tr>
+                </table>
+                </span>
+                </div>
+
+                <div class="row">
+                <span class="label">Comment: </span><span
+                class="formw"><textarea name="commentText" cols="20"></textarea></span>
+                </div>
+                <div class="row">
+                <span class="label">Action/Plan: </span><span
+                class="formw"><textarea name="actionPlan" cols="20"></textarea></span>
+                </div>
+                <div class="row">
+                <input type="submit" value="Save"></p>
+
+                </div>
+                </form>
+
+
+
+            </div>
+
+
+</div>
+<script type="text/javascript" language="Javascript1.1" src="/zeprs/js/validateProbs.js">
+</script>
+<script type="text/javascript" language="Javascript1.1" src="/zeprs/js/validateOutcomes.js">
+</script>
+
+
+
+</div>
+
+
+        </div>
+    </body>
+</html>
+

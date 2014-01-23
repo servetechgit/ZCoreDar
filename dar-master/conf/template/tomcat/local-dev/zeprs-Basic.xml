@@ -1,0 +1,35 @@
+<Context path="/zeprs" docBase="zeprs" debug="0" reloadable="false" crossContext="true" privileged="true" useNaming="true" cookies="false">
+			        
+<Resource name="jdbc/zeprsDB" auth="Container" type="javax.sql.DataSource"
+maxActive="50" maxIdle="5" maxWait="10000" 
+validationQuery="SELECT 1" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="120000"
+minEvictableIdleTimeMillis="60000"
+username="zeprs_web_user" password="0UpaxVKr" driverClassName="com.mysql.jdbc.Driver" 
+removeAbandoned="true" removeAbandonedTimeout="60" logAbandoned="true" 
+url="jdbc:mysql://localhost:3306/zeprs"/>
+
+<Resource name="jdbc/zeprsReportDB" auth="Container" type="javax.sql.DataSource"
+maxActive="50" maxIdle="5" maxWait="10000" 
+validationQuery="SELECT 1" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="120000"
+minEvictableIdleTimeMillis="60000"
+username="zeprs_web_user" password="0UpaxVKr" driverClassName="com.mysql.jdbc.Driver" 
+removeAbandoned="true" removeAbandonedTimeout="60" logAbandoned="true" 
+url="jdbc:mysql://localhost:3306/zeprs"/>
+
+<Resource name="jdbc/adminDB" auth="Container" type="javax.sql.DataSource"
+maxActive="50" maxIdle="5" maxWait="10000" 
+validationQuery="SELECT 1" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="120000"
+minEvictableIdleTimeMillis="60000"
+username="root" password="36avaU68" driverClassName="com.mysql.jdbc.Driver" 
+removeAbandoned="true" removeAbandonedTimeout="60" logAbandoned="true" 
+url="jdbc:mysql://localhost:3306/admin"/>
+
+<Resource name="jdbc/demoDB" auth="Container" type="javax.sql.DataSource"
+maxActive="50" maxIdle="5" maxWait="10000" 
+validationQuery="SELECT 1" testOnBorrow="true" testWhileIdle="true" timeBetweenEvictionRunsMillis="120000"
+minEvictableIdleTimeMillis="60000"
+username="zeprs_demo_user" password="A99wKbzN" driverClassName="com.mysql.jdbc.Driver" 
+removeAbandoned="true" removeAbandonedTimeout="60" logAbandoned="true" 
+url="jdbc:mysql://localhost:3306/zeprsdemo"/>
+
+</Context>

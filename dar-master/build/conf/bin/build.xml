@@ -1,0 +1,27 @@
+<project name="zeprs" default="all" basedir=".">
+
+<path id="tomcat.classpath">
+        <fileset dir="/usr/local/tomcat55/server/lib">
+                <include name="catalina-ant.jar"/>
+                <include name="catalina.jar"/>
+                <include name="catalina-optional.jar"/>
+        </fileset>
+</path>
+
+  <taskdef name="install" classname="org.apache.catalina.ant.InstallTask"/>
+  <taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask"/>
+  <taskdef name="list" classname="org.apache.catalina.ant.ListTask"/>
+  <taskdef name="reload" classname="org.apache.catalina.ant.ReloadTask"/>
+  <taskdef name="resources" classname="org.apache.catalina.ant.ResourcesTask"/>
+  <taskdef name="roles" classname="org.apache.catalina.ant.RolesTask"/>
+  <taskdef name="start" classname="org.apache.catalina.ant.StartTask"/>
+  <taskdef name="stop" classname="org.apache.catalina.ant.StopTask"/>
+  <taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask"/>
+
+        <property name="remote-url" value="http://192.168.20.253:8080/manager"/>
+        <property name="remote-username" value="zepadmin"/>
+        <property name="remote-password" value="zepadmin11"/>
+        <target name="kal" description="Install web application on remote server">
+                <deploy url="${remote-url}" username="${remote-username}" password="${remote-password}" path="/zeprs" war="zeprs.war"/>
+        </target>
+</project>

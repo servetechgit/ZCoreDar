@@ -1,0 +1,1 @@
+{"org.rti.zcore.ApplicationDefinition":{"uuid":"eec13390-9893-42d9-983e-1afedc3d7231","appName":"dar","appTitle":"DAR","url":"http:\/\/ictedge.org\/zcore_projects\/dar\/updates\/","formListFilename":"Forms.xml","flowListFilename":"Flows.xml","localList":{"string":["en_US"]},"defaultLocale":"en_US","problemListEnabled":true,"useFileEncryption":true}}

@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN" "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+  <global/>
+  <formset>
+    <form name="adminForm">
+      <field property="id" depends="integer">
+        <arg0 key="labels.admin.form.id"/>
+      </field>
+      <field property="name" depends="required, sqlField">
+        <arg0 key="labels.admin.form.name"/>
+      </field>
+      <field property="label" depends="required">
+        <arg0 key="labels.admin.form.label"/>
+      </field>
+      <field property="requireReauth" depends="">
+        <arg0 key="labels.admin.form.requireReauth"/>
+      </field>
+      <field property="requirePatient" depends="">
+        <arg0 key="labels.admin.form.requirePatient"/>
+      </field>
+      <field property="enabled" depends="">
+        <arg0 key="labels.admin.form.enabled"/>
+      </field>
+      <field property="flowOrder" depends="required">
+        <arg0 key="labels.admin.form.flowOrder"/>
+      </field>
+    </form>
+    <form name="adminPageItem">
+      <field property="form_field.label" depends="required">
+        <arg0 key="labels.admin.field.label"/>
+      </field>
+      <field property="form_field.starSchemaName" depends="required, sqlField">
+        <arg0 key="labels.admin.field.starSchemaName"/>
+      </field>
+      <field property="form_field.minValue" depends="integer">
+        <arg0 key="labels.admin.field.minValue"/>
+      </field>
+      <field property="form_field.maxValue" depends="integer">
+        <arg0 key="labels.admin.field.maxValue"/>
+      </field>
+      <field property="formId" depends="required">
+        <arg0 key="labels.admin.form.id"/>
+      </field>
+    </form>
+    <form name="adminRule">
+      <field property="ruleClass" depends="required"/>
+      <field property="outcomeClass" depends="required"/>
+      <field property="enabled"/>
+    </form>
+    <form name="problem">
+      <field property="problemName" depends="required">
+        <arg0 key="labels.problem.problemName"/>
+      </field>
+      <field property="commentText" depends="maxlength">
+        <arg0 key="labels.problem.commentText"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var>
+          <var-name>maxlength</var-name>
+          <var-value>1000</var-value>
+        </var>
+      </field>
+      <field property="actionPlan" depends="maxlength">
+        <arg0 key="labels.problem.actionPlan"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var>
+          <var-name>maxlength</var-name>
+          <var-value>1000</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="comment">
+      <field property="commentText" depends="required,maxlength">
+        <arg0 key="labels.problem.commentText"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var>
+          <var-name>maxlength</var-name>
+          <var-value>1000</var-value>
+        </var>
+      </field>
+      <field property="actionPlan" depends="maxlength">
+        <arg0 key="labels.problem.actionPlan"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var>
+          <var-name>maxlength</var-name>
+          <var-value>1000</var-value>
+        </var>
+      </field>
+    </form>
+    <form name="Appointment">
+      <field property="date_visit">
+        <arg0 key="Date of visit" resource="false"/>
+      </field>
+      <field property="appointment_date" depends="date">
+        <var>
+          <var-name>datePatternStrict</var-name>
+          <var-value>yyyy-MM-dd</var-value>
+        </var>
+        <arg0 key="Date of Appointment" resource="false"/>
+      </field>
+    </form>
+    <form name="PatientStatus_changes">
+      <field property="date_visit">
+        <arg0 key="Date of visit" resource="false"/>
+      </field>
+      <field property="type_of_change" depends="required">
+        <arg0 key="Type of change" resource="false"/>
+      </field>
+      <field property="comments">
+        <arg0 key="Comments" resource="false"/>
+      </field>
+    </form>
+    <form name="RegimenItem_bridge">
+      <field property="regimen_id">
+        <arg0 key="Regimen" resource="false"/>
+      </field>
+      <field property="item_id">
+        <arg0 key="Stock Item" resource="false"/>
+      </field>
+    </form>
+    <form name="PatientCondition">
+      <field property="date_visit">
+        <arg0 key="Date of visit" resource="false"/>
+      </field>
+      <field property="weight" depends="float,floatRange">
+        <arg1 name="floatRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0.0</var-value>
+        </var>
+        <arg2 name="floatRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>1000.0</var-value>
+        </var>
+        <arg0 key="Weight" resource="false"/>
+      </field>
+      <field property="height" depends="float,floatRange">
+        <arg1 name="floatRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0.0</var-value>
+        </var>
+        <arg2 name="floatRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>500.0</var-value>
+        </var>
+        <arg0 key="Height" resource="false"/>
+      </field>
+      <field property="who_screen">
+        <arg0 key="WHO Screen" resource="false"/>
+      </field>
+      <field property="cd4count" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>5000</var-value>
+        </var>
+        <arg0 key="CD4 Count" resource="false"/>
+      </field>
+      <field property="bmi_calculated" depends="float,floatRange">
+        <arg1 name="floatRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0.0</var-value>
+        </var>
+        <arg2 name="floatRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>100.0</var-value>
+        </var>
+        <arg0 key="BMI" resource="false"/>
+      </field>
+      <field property="tb_status">
+        <arg0 key="TB status" resource="false"/>
+      </field>
+      <field property="oi_indications">
+        <arg0 key="OI Indications" resource="false"/>
+      </field>
+    </form>
+    <form name="ArtRegimen">
+      <field property="date_visit">
+        <arg0 key="Date of visit" resource="false"/>
+      </field>
+      <field property="date_started" depends="date">
+        <var>
+          <var-name>datePatternStrict</var-name>
+          <var-value>yyyy-MM-dd</var-value>
+        </var>
+        <arg0 key="Date started" resource="false"/>
+      </field>
+      <field property="regimen_1" depends="required,integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Regimen" resource="false"/>
+      </field>
+      <field property="regimen_change_reason">
+        <arg0 key="Reason for Regimen Change" resource="false"/>
+      </field>
+    </form>
+    <form name="PatientRegistration">
+      <field property="date_visit">
+        <arg0 key="Date of visit" resource="false"/>
+      </field>
+      <field property="surname" depends="required">
+        <arg0 key="Surname" resource="false"/>
+      </field>
+      <field property="forenames" depends="required">
+        <arg0 key="Forenames" resource="false"/>
+      </field>
+      <field property="sex">
+        <arg0 key="Sex" resource="false"/>
+      </field>
+      <field property="new_patient_site_id">
+        <arg0 key="Site" resource="false"/>
+      </field>
+      <field property="patient_id_number" depends="required">
+        <arg0 key="Client ID number" resource="false"/>
+      </field>
+      <field property="birth_date" depends="date">
+        <var>
+          <var-name>datePatternStrict</var-name>
+          <var-value>yyyy-MM-dd</var-value>
+        </var>
+        <arg0 key="Birth Date" resource="false"/>
+      </field>
+      <field property="age_at_first_attendence" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>130</var-value>
+        </var>
+        <arg0 key="Age" resource="false"/>
+      </field>
+      <field property="age_category" depends="required">
+        <arg0 key="Age Category" resource="false"/>
+      </field>
+      <field property="street_address_1">
+        <arg0 key="Address (line 1)" resource="false"/>
+      </field>
+      <field property="street_address_2">
+        <arg0 key="Address (line 2)" resource="false"/>
+      </field>
+      <field property="mobile_phone">
+        <arg0 key="Mobile phone" resource="false"/>
+      </field>
+      <field property="entry_point">
+        <arg0 key="Entry point" resource="false"/>
+      </field>
+      <field property="entry_point_other">
+        <arg0 key="Entry point, Other" resource="false"/>
+      </field>
+      <field property="notes">
+        <arg0 key="Notes" resource="false"/>
+      </field>
+    </form>
+    <form name="StockControl">
+      <field property="date_of_record" depends="date">
+        <var>
+          <var-name>datePatternStrict</var-name>
+          <var-value>yyyy-MM-dd</var-value>
+        </var>
+        <arg0 key="Date" resource="false"/>
+      </field>
+      <field property="item_id" depends="required">
+        <arg0 key="Stock" resource="false"/>
+      </field>
+      <field property="type_of_change" depends="required">
+        <arg0 key="Type of Stock Change" resource="false"/>
+      </field>
+      <field property="change_value" depends="required,integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Quantity in caps/tabs/ml" resource="false"/>
+      </field>
+      <field property="expiry_date" depends="date">
+        <var>
+          <var-name>datePatternStrict</var-name>
+          <var-value>yyyy-MM-dd</var-value>
+        </var>
+        <arg0 key="Expiry Date" resource="false"/>
+      </field>
+      <field property="notes">
+        <arg0 key="Reference / Notes" resource="false"/>
+      </field>
+      <field property="balance" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Balance upon Receipt" resource="false"/>
+      </field>
+      <field property="last_patient_item_id">
+        <arg0 key="Last PatientItem Id (FK)" resource="false"/>
+      </field>
+      <field property="computedBalance" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="computedBalance" resource="false"/>
+      </field>
+    </form>
+    <form name="UserInfo">
+      <field property="username" depends="required">
+        <arg0 key="Username" resource="false"/>
+      </field>
+      <field property="password" depends="required">
+        <arg0 key="Password" resource="false"/>
+      </field>
+      <field property="email">
+        <arg0 key="E-mail address" resource="false"/>
+      </field>
+      <field property="forenames" depends="required">
+        <arg0 key="First name" resource="false"/>
+      </field>
+      <field property="lastname" depends="required">
+        <arg0 key="Surname" resource="false"/>
+      </field>
+      <field property="mobile">
+        <arg0 key="Mobile phone" resource="false"/>
+      </field>
+      <field property="phone">
+        <arg0 key="Phone" resource="false"/>
+      </field>
+    </form>
+    <form name="RegimenGroup">
+      <field property="name">
+        <arg0 key="Name" resource="false"/>
+      </field>
+    </form>
+    <form name="Regimen">
+      <field property="code" depends="required">
+        <arg0 key="Code" resource="false"/>
+      </field>
+      <field property="name" depends="required">
+        <arg0 key="Name" resource="false"/>
+      </field>
+      <field property="description" depends="required">
+        <arg0 key="Description" resource="false"/>
+      </field>
+      <field property="arv_option" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="ARV Option" resource="false"/>
+      </field>
+      <field property="regimen_group_id" depends="required,integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Regimen Group" resource="false"/>
+      </field>
+      <field property="disabled" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Disabled" resource="false"/>
+      </field>
+    </form>
+    <form name="ItemGroup">
+      <field property="name">
+        <arg0 key="Name" resource="false"/>
+      </field>
+      <field property="short_name">
+        <arg0 key="Short name " resource="false"/>
+      </field>
+    </form>
+    <form name="Item">
+      <field property="code">
+        <arg0 key="Code" resource="false"/>
+      </field>
+      <field property="name" depends="required">
+        <arg0 key="Name" resource="false"/>
+      </field>
+      <field property="item_group_id">
+        <arg0 key="Item Group" resource="false"/>
+      </field>
+      <field property="unit">
+        <arg0 key="Unit" resource="false"/>
+      </field>
+      <field property="pack_size" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Pack size" resource="false"/>
+      </field>
+      <field property="use_in_report">
+        <arg0 key="Use in Report" resource="false"/>
+      </field>
+    </form>
+    <form name="PatientItem">
+      <field property="date_visit">
+        <arg0 key="Date of visit" resource="false"/>
+      </field>
+      <field property="item_id">
+        <arg0 key="Item" resource="false"/>
+      </field>
+      <field property="PBF1_item_id">
+        <arg0 key="Item" resource="false"/>
+      </field>
+      <field property="PBF2_item_id">
+        <arg0 key="Item" resource="false"/>
+      </field>
+      <field property="PBF3_item_id">
+        <arg0 key="Item" resource="false"/>
+      </field>
+      <field property="PBF4_item_id">
+        <arg0 key="Item" resource="false"/>
+      </field>
+      <field property="PBF5_item_id">
+        <arg0 key="Item" resource="false"/>
+      </field>
+      <field property="PBF6_item_id">
+        <arg0 key="Item" resource="false"/>
+      </field>
+      <field property="PBF7_item_id">
+        <arg0 key="Item" resource="false"/>
+      </field>
+      <field property="PBF8_item_id">
+        <arg0 key="Item" resource="false"/>
+      </field>
+      <field property="PBF9_item_id">
+        <arg0 key="Item" resource="false"/>
+      </field>
+      <field property="PBF10_item_id">
+        <arg0 key="Item" resource="false"/>
+      </field>
+      <field property="number_of_days" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="No. of Days " resource="false"/>
+      </field>
+      <field property="PBF1_number_of_days" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="No. of Days " resource="false"/>
+      </field>
+      <field property="PBF2_number_of_days" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="No. of Days " resource="false"/>
+      </field>
+      <field property="PBF3_number_of_days" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="No. of Days " resource="false"/>
+      </field>
+      <field property="PBF4_number_of_days" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="No. of Days " resource="false"/>
+      </field>
+      <field property="PBF5_number_of_days" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="No. of Days " resource="false"/>
+      </field>
+      <field property="PBF6_number_of_days" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="No. of Days " resource="false"/>
+      </field>
+      <field property="PBF7_number_of_days" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="No. of Days " resource="false"/>
+      </field>
+      <field property="PBF8_number_of_days" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="No. of Days " resource="false"/>
+      </field>
+      <field property="PBF9_number_of_days" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="No. of Days " resource="false"/>
+      </field>
+      <field property="PBF10_number_of_days" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="No. of Days " resource="false"/>
+      </field>
+      <field property="dispensed" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Quantity Dispensed" resource="false"/>
+      </field>
+      <field property="PBF1_dispensed" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Quantity Dispensed" resource="false"/>
+      </field>
+      <field property="PBF2_dispensed" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Quantity Dispensed" resource="false"/>
+      </field>
+      <field property="PBF3_dispensed" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Quantity Dispensed" resource="false"/>
+      </field>
+      <field property="PBF4_dispensed" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Quantity Dispensed" resource="false"/>
+      </field>
+      <field property="PBF5_dispensed" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Quantity Dispensed" resource="false"/>
+      </field>
+      <field property="PBF6_dispensed" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Quantity Dispensed" resource="false"/>
+      </field>
+      <field property="PBF7_dispensed" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Quantity Dispensed" resource="false"/>
+      </field>
+      <field property="PBF8_dispensed" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Quantity Dispensed" resource="false"/>
+      </field>
+      <field property="PBF9_dispensed" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Quantity Dispensed" resource="false"/>
+      </field>
+      <field property="PBF10_dispensed" depends="integer,intRange">
+        <arg1 name="intRange" key="${var:min}" resource="false"/>
+        <var>
+          <var-name>min</var-name>
+          <var-value>0</var-value>
+        </var>
+        <arg2 name="intRange" key="${var:max}" resource="false"/>
+        <var>
+          <var-name>max</var-name>
+          <var-value>2147483647</var-value>
+        </var>
+        <arg0 key="Quantity Dispensed" resource="false"/>
+      </field>
+    </form>
+  </formset>
+</form-validation>

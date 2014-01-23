@@ -1,0 +1,6 @@
+alter table patientregistration add column firm varchar(255);
+alter table encounter_archive add index FKFDFA0DB651A3A90E (created_by), add constraint FKFDFA0DB651A3A90E foreign key (created_by) references user_group_membership (id);
+alter table encounter_archive add index FKFDFA0DB63E8F4D64 (last_modified_by), add constraint FKFDFA0DB63E8F4D64 foreign key (last_modified_by) references user_group_membership (id);
+alter table encounter_archive add index FKFDFA0DB67D2B7913 (site_id), add constraint FKFDFA0DB67D2B7913 foreign key (site_id) references site (id);
+
+installed in lusaka 3/30/3006?

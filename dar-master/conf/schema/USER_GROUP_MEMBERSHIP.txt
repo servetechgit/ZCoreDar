@@ -1,0 +1,13 @@
+"",16,,,
+"clerk",18,"Mrs.","Data","Clerk"
+"clinic",5,"Dr.","Rene","Magritte"
+"demo",5,"Mr.","Pico","Smythe"
+"demouser",5,"Mr.","Demo","User"
+"luser",16,"Mr.","John","Doe"
+"reports",15,"Mr.","Maurice","Ashley"
+"test01",9,,,
+"test1",1,,,
+"testniamh",1,,,
+"useradmin",9,,,
+"viewall",16,"Mr.","View","All"
+"zepadmin",1,"Mr.","Isaak","Hayes"

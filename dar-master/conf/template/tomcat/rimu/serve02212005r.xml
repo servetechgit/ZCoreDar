@@ -1,0 +1,202 @@
+<Server port="8005" shutdown="SHUTDOWN">
+    <GlobalNamingResources>
+        <!-- Used by Manager webapp -->
+        <Resource name="UserDatabase" auth="Container"
+            type="org.apache.catalina.UserDatabase"
+            description="User database that can be updated and saved">
+        </Resource>
+        <ResourceParams name="UserDatabase">
+            <parameter>
+                <name>factory</name>
+                <value>org.apache.catalina.users.MemoryUserDatabaseFactory</value>
+            </parameter>
+            <parameter>
+                <name>pathname</name>
+                <value>conf/tomcat-users.xml</value>
+            </parameter>
+        </ResourceParams>
+
+    </GlobalNamingResources>
+
+    <Service name="Catalina">
+        <Connector port="8080"/>
+
+        <!-- This is here for compatibility only, not required -->
+        <Connector port="8009" protocol="AJP/1.3"/>
+
+        <Engine name="Catalina" defaultHost="localhost">
+            <Logger className="org.apache.catalina.logger.FileLogger"/>
+
+            <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+                resourceName="UserDatabase"/>
+
+            <Realm className="org.apache.catalina.realm.UserGroupRoleRealm" debug="99"
+                driverName="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://localhost/zeprs?autoReconnect=true"
+                connectionName="zeprs_web_user"
+                connectionPassword="0UpaxVKr"
+                userTable="mail.accountuser"
+                userNameCol="username"
+                userCredCol="password"
+                groupTable="user_group_membership"
+                userFK="id"
+                groupPK="id"
+                userRoleTable="user_group_role"
+                roleNameCol="role"
+                groupFK="group_id"
+                mysqlPassword="true"/>
+
+            
+
+            <Host name="localhost" appBase="webapps">
+                <Context path="/zeprs" docBase="zeprs" debug="0" reloadable="true" crossContext="true" privileged="true" useNaming="true" cookies="false">
+                    <Resource name="jdbc/zeprsReportDB"
+                        auth="Container"
+                        type="javax.sql.DataSource"/>   
+                    <ResourceParams name="jdbc/zeprsReportDB">
+                        <parameter>
+                            <name>factory</name>
+                            <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>maxActive</name>
+                            <value>10</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>maxIdle</name>
+                            <value>30</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>maxWait</name>
+                            <value>10000</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>username</name>
+                            <value>zeprs_web_user</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>password</name>
+                            <value>0UpaxVKr</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>driverClassName</name>
+                            <value>com.mysql.jdbc.Driver</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>url</name>
+                            <value>jdbc:mysql://localhost/zeprs?autoReconnect=true</value>
+                        </parameter>
+                    </ResourceParams>
+
+                    <Resource name="jdbc/zeprsDB"
+                        auth="Container"
+                        type="javax.sql.DataSource"/>
+
+                    <ResourceParams name="jdbc/zeprsDB">
+                        <parameter>
+                            <name>factory</name>
+                            <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>maxActive</name>
+                            <value>10</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>maxIdle</name>
+                            <value>30</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>maxWait</name>
+                            <value>10000</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>username</name>
+                            <value>zeprs_web_user</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>password</name>
+                            <value>0UpaxVKr</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>driverClassName</name>
+                            <value>com.mysql.jdbc.Driver</value>
+                        </parameter>
+
+                        <parameter>
+                            <name>url</name>
+                            <value>jdbc:mysql://localhost/zeprs?autoReconnect=true</value>
+                        </parameter>
+                    </ResourceParams>
+
+                </Context>
+                
+                
+                <Context path="/pts" docBase="pts" debug="0" reloadable="true" crossContext="true" privileged="true" useNaming="true" cookies="false">
+		
+		    <Resource name="jdbc/pts"
+			auth="Container"
+			type="javax.sql.DataSource"/>
+
+		    <ResourceParams name="jdbc/pts">
+			<parameter>
+			    <name>factory</name>
+			    <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+			</parameter>
+
+			<parameter>
+			    <name>maxActive</name>
+			    <value>10</value>
+			</parameter>
+
+			<parameter>
+			    <name>maxIdle</name>
+			    <value>30</value>
+			</parameter>
+
+			<parameter>
+			    <name>maxWait</name>
+			    <value>10000</value>
+			</parameter>
+
+			<parameter>
+			    <name>username</name>
+			    <value>root</value>
+			</parameter>
+
+			<parameter>
+			    <name>password</name>
+			    <value>36avaU68</value>
+			</parameter>
+
+			<parameter>
+			    <name>driverClassName</name>
+			    <value>com.mysql.jdbc.Driver</value>
+			</parameter>
+
+			<parameter>
+			    <name>url</name>
+			    <value>jdbc:mysql://localhost/pts?autoReconnect=true</value>
+			</parameter>
+		    </ResourceParams>
+		
+                </Context>
+
+
+
+            </Host>
+        </Engine>
+    </Service>
+</Server>

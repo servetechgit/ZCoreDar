@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/dar" docBase="dar" debug="0" reloadable="false" crossContext="true" privileged="true" useNaming="true" cookies="false">
+
+<Realm className="org.rti.tools.tomcat.ZcoreUserGroupRoleRealm" debug="99" driverName="org.apache.derby.jdbc.ClientDriver"
+groupFK="group_id" groupPK="id" groupTable="user_group_membership" mysqlPassword="true" roleNameCol="role" userCredCol="password"
+userFK="id" userNameCol="username" userRoleTable="user_group_role" userTable="user_info" encryptionMethod="none" dataSourceName="jdbc/zeprsDB"/>
+
+<Resource auth="Container" factory="org.rti.tools.dbcp.EncryptedDataSourceFactory"
+driverClassName="org.apache.derby.jdbc.ClientDriver"
+logAbandoned="true" maxActive="50" maxIdle="5" maxWait="10000" minEvictableIdleTimeMillis="60000"
+name="jdbc/zeprsDB" removeAbandoned="true" removeAbandonedTimeout="60" testOnBorrow="true"
+testWhileIdle="true" timeBetweenEvictionRunsMillis="120000" type="javax.sql.DataSource"
+url="jdbc:derby://localhost/zeprs" username="username" password="password" bootPassword="bootPassword" validationQuery="values (1)"/>
+
+</Context>

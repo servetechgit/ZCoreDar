@@ -1,0 +1,5 @@
+[schemaupdate] alter table deliverysum add column comments text;
+
+BUILD SUCCESSFUL
+
+3/9/2006 already on lusaka server

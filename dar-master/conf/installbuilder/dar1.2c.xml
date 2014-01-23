@@ -1,0 +1,219 @@
+<project>
+    <shortName>dar</shortName>
+    <fullName>zCore DAR</fullName>
+    <version>1.2c</version>
+    <readmeFile>../../../../../../dar/readme.txt</readmeFile>
+    <componentList>
+        <component>
+            <name>default</name>
+            <description>Default Component</description>
+            <canBeEdited>1</canBeEdited>
+            <selected>1</selected>
+            <show>1</show>
+            <desktopShortcutList>
+                <shortcut>
+                    <comment>Launch DAR</comment>
+                    <exec></exec>
+                    <icon></icon>
+                    <name>Shortcut to DAR</name>
+                    <path></path>
+                    <platforms>all</platforms>
+                    <runAsAdmin>0</runAsAdmin>
+                    <runInTerminal>0</runInTerminal>
+                    <windowsExec>${installdir}\app\DAR.exe</windowsExec>
+                    <windowsExecArgs></windowsExecArgs>
+                    <windowsIcon>${installdir}\app\DAR.exe</windowsIcon>
+                    <windowsPath>${installdir}\app</windowsPath>
+                </shortcut>
+            </desktopShortcutList>
+            <folderList>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}</destination>
+                    <name>programfiles</name>
+                    <platforms>all</platforms>
+                    <shortcutList>
+                        <shortcut>
+                            <comment>Uninstall</comment>
+                            <exec>${installdir}/${uninstallerName}</exec>
+                            <icon></icon>
+                            <name>Uninstall ${product_fullname}</name>
+                            <path>${installdir}</path>
+                            <platforms>all</platforms>
+                            <runAsAdmin>0</runAsAdmin>
+                            <runInTerminal>0</runInTerminal>
+                            <windowsExec>${installdir}/${uninstallerName}.exe</windowsExec>
+                            <windowsExecArgs></windowsExecArgs>
+                            <windowsIcon></windowsIcon>
+                            <windowsPath>${installdir}</windowsPath>
+                        </shortcut>
+                    </shortcutList>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}</destination>
+                    <name>programfileslinux</name>
+                    <platforms>linux</platforms>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}</destination>
+                    <name>programfileswindows</name>
+                    <platforms>windows</platforms>
+                    <distributionFileList>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/app</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/backup</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/bin</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/conf</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/databases</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/derby-bin</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/lib</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/logs</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/resources</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/scripts</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/temp</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/updates</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/webapps</origin>
+                        </distributionDirectory>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/work</origin>
+                        </distributionDirectory>
+                        <distributionFile>
+                            <origin>../../../../../../dar/homepage.properties</origin>
+                        </distributionFile>
+                        <distributionFile>
+                            <origin>../../../../../../dar/readme.txt</origin>
+                        </distributionFile>
+                        <distributionDirectory>
+                            <origin>../../../../../../dar/docs</origin>
+                        </distributionDirectory>
+                    </distributionFileList>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}</destination>
+                    <name>programfilesosx</name>
+                    <platforms>osx</platforms>
+                </folder>
+            </folderList>
+            <startMenuShortcutList>
+                <startMenuShortcut>
+                    <comment>Uninstall ${product_fullname}</comment>
+                    <name>Uninstall ${product_fullname}</name>
+                    <runAsAdmin>0</runAsAdmin>
+                    <runInTerminal>0</runInTerminal>
+                    <windowsExec>${installdir}/${uninstallerName}.exe</windowsExec>
+                    <windowsExecArgs></windowsExecArgs>
+                    <windowsIcon></windowsIcon>
+                    <windowsPath>${installdir}/</windowsPath>
+                </startMenuShortcut>
+                <startMenuShortcut>
+                    <comment>Launch DAR</comment>
+                    <name>Shortcut to DAR</name>
+                    <runAsAdmin>0</runAsAdmin>
+                    <runInTerminal>0</runInTerminal>
+                    <windowsExec>${installdir}\app\DAR.exe</windowsExec>
+                    <windowsExecArgs></windowsExecArgs>
+                    <windowsIcon>${installdir}\app\DAR.exe</windowsIcon>
+                    <windowsPath>${installdir}\app</windowsPath>
+                </startMenuShortcut>
+                <startMenuFileShortcut>
+                    <comment>Text that will appear on Tooltip</comment>
+                    <filePath>${installdir}\readme.txt</filePath>
+                    <name>Read Me First</name>
+                    <runAsAdmin>0</runAsAdmin>
+                    <runInTerminal>0</runInTerminal>
+                    <windowsIcon></windowsIcon>
+                </startMenuFileShortcut>
+                <startMenuFolder>
+                    <name>Documentation</name>
+                    <platforms>windows</platforms>
+                    <startMenuShortcutList>
+                        <startMenuFileShortcut>
+                            <comment>How to administer the DAR</comment>
+                            <filePath>${installdir}\docs\DAR User Guide.pdf</filePath>
+                            <name>DAR User Guide</name>
+                            <runAsAdmin>0</runAsAdmin>
+                            <runInTerminal>0</runInTerminal>
+                            <windowsIcon></windowsIcon>
+                        </startMenuFileShortcut>
+                        <startMenuFileShortcut>
+                            <comment>List of changes in this release</comment>
+                            <filePath>${installdir}\docs\DAR Release Notes.pdf</filePath>
+                            <name>DAR Release Notes</name>
+                            <runAsAdmin>0</runAsAdmin>
+                            <runInTerminal>0</runInTerminal>
+                            <windowsIcon></windowsIcon>
+                        </startMenuFileShortcut>
+                    </startMenuShortcutList>
+                </startMenuFolder>
+            </startMenuShortcutList>
+        </component>
+    </componentList>
+    <postInstallationActionList>
+        <registrySet>
+            <key>HKEY_LOCAL_MACHINE\Software\RTI - DAR\zCore DAR</key>
+            <name>Location</name>
+            <type>REG_SZ</type>
+            <value>${installdir}</value>
+        </registrySet>
+        <registrySet>
+            <key>HKEY_LOCAL_MACHINE\Software\RTI - DAR\zCore DAR</key>
+            <name>Version</name>
+            <type>REG_SZ</type>
+            <value>1.2c</value>
+        </registrySet>
+        <registrySet>
+            <key>HKEY_LOCAL_MACHINE\Software\RTI - DAR\zCore DAR
+    </key>
+            <name>Sub-version</name>
+            <type>REG_SZ</type>
+            <value>04062012_161522</value>
+        </registrySet>
+    </postInstallationActionList>
+    <enableRollback>1</enableRollback>
+    <enableTimestamp>1</enableTimestamp>
+    <saveRelativePaths>1</saveRelativePaths>
+    <vendor>RTI - DAR</vendor>
+    <parameterList>
+        <directoryParameter>
+            <name>installdir</name>
+            <description>Installer.Parameter.installdir.description</description>
+            <explanation>Installer.Parameter.installdir.explanation</explanation>
+            <value></value>
+            <default>${platform_install_prefix}/${product_shortname}-${product_version}</default>
+            <allowEmptyValue>0</allowEmptyValue>
+            <ask>yes</ask>
+            <cliOptionName>prefix</cliOptionName>
+            <mustBeWritable>yes</mustBeWritable>
+            <mustExist>0</mustExist>
+            <width>40</width>
+        </directoryParameter>
+    </parameterList>
+</project>
+

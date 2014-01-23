@@ -1,0 +1,21 @@
+<Context path="/zeprs" docBase="zeprs" debug="0" reloadable="false" crossContext="true" privileged="true"
+         useNaming="true" cookies="false">
+    <!-- this is a test config used when I switch from dbcp to c3p0 -->
+    <Resource auth="Container"
+              description="DB Connection"
+              driverClass="com.mysql.jdbc.Driver"
+              maxPoolSize="50"
+              minPoolSize="5"
+              initialPoolSize="5"
+              maxIdleTime="5"
+              acquireIncrement="5"
+              preferredTestQuery="SELECT 1"
+              idleConnectionTestPeriod="5"
+              name="jdbc/zeprsDB"
+              user="zeprs_web_user"
+              password="0UpaxVKr"
+              factory="org.apache.naming.factory.BeanFactory"
+              type="com.mchange.v2.c3p0.ComboPooledDataSource"
+              jdbcUrl="jdbc:mysql://localhost:3306/zeprs?autoReconnect=true"/>
+
+</Context>

@@ -1,0 +1,1 @@
+ALTER TABLE stock_control add column computedBalance int

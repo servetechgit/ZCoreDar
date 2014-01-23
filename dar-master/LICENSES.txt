@@ -1,0 +1,98 @@
+Zcore Source Code License
+
+Pertinent source code for the Zcore application is released under the Apache 2.0 License (ASL2). The following text appears at the top of Java source code files:
+ 
+/*
+ *    Copyright 2003 - 2012 Research Triangle Institute
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ */
+
+Zcore Documentation License
+
+This Zcore Documentation site is released on the Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License. 
+Each page on this website has a link to the text of this license.
+
+Libraries
+
+Zcore uses its own jar, tomcat-realm-zeprs.jar, for authentication via Tomcat realms. 
+It also uses some modified code from struts-layout (ASL2 license) to render the calendar widget.
+
+List of libraries that Zcore uses and their licenses:
+
+Libs in dar\web\WEB-INF\lib:
+
+Library				Purpose									License		URL
+ant.jar				Admin webapp calls some ant tasks for Dynasite source generator		ASL2		http://ant.apache.org/license.html
+ant-launcher.jar		Admin webapp calls some ant tasks for Dynasite source generator		ASL2		http://ant.apache.org/license.html
+bsh-1.3.0.jar			rules processing							ASL2		http://commons.apache.org/license.html
+cglib-nodep-2.2			hibernate dependency							LPGL		http://www.gnu.org/copyleft/lesser.html
+commons-beanutils.jar		Easy to use wrappers around the Java reflection and introspection APIs.	ASL2		http://www.apache.org/licenses/LICENSE-2.0
+commons-codec-1.4.jar		Base64 encoding for MySQL passwords					ASL2		http://www.apache.org/licenses/LICENSE-2.0
+commons-collections-3.1.jar	Extends or augments the Java Collections Framework.			ASL2		http://www.apache.org/licenses/LICENSE-2.0
+commons-configuration-1.1.jar	Reading of configuration/preferences files in various formats.		ASL2		http://www.apache.org/licenses/LICENSE-2.0
+commons-dbcp-1.2.1.jar		db connectivity								ASL2		http://www.apache.org/licenses/LICENSE-2.0
+commons-dbutils-1.3.jar		simple ORM								ASL2		http://www.apache.org/licenses/LICENSE-2.0
+commons-digester.jar	 	XML object mapping used by struts, quartz and other libs		ASL2		http://www.apache.org/licenses/LICENSE-2.0
+commons-io-1.4.jar		library of utilities to assist with developing IO functionality		ASL2		http://www.apache.org/licenses/LICENSE-2.0
+commons-lang-2.0.jar		Provides extra functionality for classes in java.lang.			ASL2		http://www.apache.org/licenses/LICENSE-2.0
+commons-logging-1.1.jar		Wrapper around a variety of logging API implementations.		ASL2		http://www.apache.org/licenses/LICENSE-2.0
+commons-logging-api-1.1.jar	Wrapper around a variety of logging API implementations.		ASL2		http://www.apache.org/licenses/LICENSE-2.0
+commons-pool-1.2.jar		Provides an Object-pooling API,						ASL2		http://www.apache.org/licenses/LICENSE-2.0
+commons-validator.jar		Framework to define validators and validation rules in an xml file.	ASL2		http://www.apache.org/licenses/LICENSE-2.0
+dom4j-1.6.1.jar			XML parser								BSD-style	http://www.dom4j.org/license.html
+dwr.jar				AJAX lib								ASL2		http://directwebremoting.org/dwr/index.html
+hibernate3.jar			ORM mapping								LPGL		http://www.gnu.org/copyleft/lesser.html
+hibernate-tools.jar		ORM mapping								LPGL		http://www.gnu.org/copyleft/lesser.html
+httpclient-4.1.jar		low level Java components focused on HTTP and associated protocols.	ASL2		http://www.apache.org/licenses/LICENSE-2.0
+httpcore-4.1.jar		low level Java components focused on HTTP and associated protocols.	ASL2		http://www.apache.org/licenses/LICENSE-2.0
+jackson-core-asl-1.3.0.jar	High-performance JSON processor						ASL2		http://wiki.fasterxml.com/JacksonDownload
+jackson-mapper-asl-1.3.0.jar	High-performance JSON processor						ASL2		http://wiki.fasterxml.com/JacksonDownload
+jakarta-oro.jar			regex utility classes used by struts and quarts.			ASL2		http://svn.apache.org/repos/asf/jakarta/oro/trunk/LICENSE
+jdom-1.1.jar			XML parser								ASL2-like	http://www.jdom.org/docs/faq.html#a0030
+jettison-1.2.jar		JSON StAX Implementation						ASL2		http://jettison.codehaus.org/License
+jmx.jar				Java Management Extensions (JMX)					Sun		http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html
+joda-time-1.6.jar		replacement for the Java date and time classes				ASL2		http://joda-time.sourceforge.net/license.html
+js.jar				open-source implementation of JavaScript written entirely in Java	MPL 2.0		https://developer.mozilla.org/en-US/docs/Rhino/Download_Rhino?redirectlocale=en-US&redirectslug=RhinoDownload#License
+json-20080701.jar		JSON parser								BSD-style	http://www.json.org/license.html
+jstl.jar			JSP(tm) Standard Tag Library - display rendering tags			Sun		http://java.sun.com/products/jsp/jstl/
+jta.jar				Java Transaction API used by quartz, hibernate, spring			Sun		http://java.sun.com/products/jta/
+jxunit3.jar			Unit testing tools							BSD-style	http://www.junit.org/license
+kxml2-2.3.0.jar			lean Common XML API							BSD-style	http://sourceforge.net/projects/kxml/
+log4j-1.2.13.jar		logging									ASL2		http://logging.apache.org/log4j/1.2/license.html
+mysql-connector-java-5.0.7-bin.jar	mysql db connection						FLOSS		http://www.mysql.com/about/legal/licensing/foss-exception/
+poi-3.8-20120326.jar		Java API for Microsoft Documents					ASL2		http://www.apache.org/licenses/LICENSE-2.0
+proxy-vole-zcore.jar		Java library to auto detect the platform network proxy settings		ASL2		http://code.google.com/p/proxy-vole/
+quartz-1.5.1.jar		scheduler for record exchange w/ remote clinics.			ASL2		http://www.opensymphony.com/quartz/
+rome-1.0RC2.jar			RSS file generator							ASL2		http://rometools.org/
+sardine.jar			WEBDAV client for Java							ASL2		https://code.google.com/p/sardine/
+slf4j-api-1.5.8.jar		simple facade or abstraction for various logging frameworks		MIT		http://slf4j.org/license.html
+slf4j-simple-1.5.8.jar		simple facade or abstraction for various logging frameworks		MIT		http://slf4j.org/license.html
+standard.jar			apache taglibs								ASL2		http://jakarta.apache.org/taglibs/doc/standard-doc/intro.html
+stax-1.2.0.jar			Streaming API for XML (StAX)						ASL2		http://stax.codehaus.org/
+struts.jar			MVC framework								ASL2		http://struts.apache.org/
+strutstest-2.1.3.jar		used in unit tests							ASL1.1		http://strutstestcase.sourceforge.net/
+tomcat-realm-zeprs.jar		zcore-specific tomcat realm population for authentication		ASL2		http://tomcat.apache.org/	
+wstx-asl-3.2.7.jar		High-performance XML processor						ASL2		http://woodstox.codehaus.org/FAQ
+xjavadoc-1.1.jar		hibernate mapping file generation					BSD-style	http://xdoclet.sourceforge.net/xjavadoc/license.html
+xmlpull-1.1.3.1.jar		XML Pull Parsing							public domain	http://www.xmlpull.org/
+xom-1.1.jar			tree-based API for processing XML					LGPL		http://www.xom.nu/
+xpp3_min-1.1.4c.jar		Xstream dependency - streaming pull XML parser				public domain	http://www.xmlpull.org/
+xstream-1.4.2.jar		library to serialize objects to XML and back again			BSD-style	http://xstream.codehaus.org/license.html
+zcore-base.jar			Library of zcore methods						ASL2		http://www.ictedge.org/node/793
+zcore-derby.jar			Modification of Apache Derby for MS-SQL sql export			ASL2		http://db.apache.org/derby/license.html						
+zcore-dynasite.jar		Zcore form rendering framework						ASL2		http://www.ictedge.org/node/793
+zcore-openmrs.jar		OpenMRS compatibility							ASL2		http://www.ictedge.org/node/793
+zcore-sync.jar			Zcore sync framework							ASL2		http://www.ictedge.org/node/793
+zcore-update.jar		Zcore update framework							ASL2		http://www.ictedge.org/node/793
+zcore-utils.jar			Zcore utilities								ASL2		http://www.ictedge.org/node/793
+zcore-xmlschema.jar		modification of apache commons XMLSchema 				APL2		http://ws.apache.org/commons/xmlschema20/license.html
+
+Libs in dar\lib:
+
+tests-openmrs-api-1.6.0.9326-dev Creation of BDD test cases						OpenMRS		https://wiki.openmrs.org/display/RES/OpenMRS+Public+License+1.1
+zcore-derby.jar			Modification of Apache Derby for MS-SQL sql export			ASL2		http://db.apache.org/derby/license.html						
